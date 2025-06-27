@@ -1,372 +1,535 @@
-// SVG character illustrations for diverse children dressed as ancient Israelites
+// Pixar-style hyper-realistic SVG character illustrations for diverse children dressed as ancient Israelites
 export const ancientCharacters = {
-  // Black child as Hebrew scholar
+  // Black child as Hebrew scholar - Pixar style with detailed shading and expressions
   scholar: `
     <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-      <!-- Background robe -->
-      <path d="M50 120 Q40 130 40 150 L40 280 Q40 290 50 290 L150 290 Q160 290 160 280 L160 150 Q160 130 150 120 Z" 
-            fill="#8B4513" stroke="#654321" stroke-width="2"/>
+      <defs>
+        <radialGradient id="faceGrad1" cx="0.3" cy="0.2">
+          <stop offset="0%" stop-color="#D2B48C"/>
+          <stop offset="30%" stop-color="#A0522D"/>
+          <stop offset="100%" stop-color="#8B4513"/>
+        </radialGradient>
+        <radialGradient id="robeGrad1" cx="0.2" cy="0.1">
+          <stop offset="0%" stop-color="#F4E4BC"/>
+          <stop offset="50%" stop-color="#DEB887"/>
+          <stop offset="100%" stop-color="#CD853F"/>
+        </radialGradient>
+        <linearGradient id="hairGrad1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#5D4E37"/>
+          <stop offset="100%" stop-color="#2F1B14"/>
+        </linearGradient>
+        <filter id="shadow1">
+          <feDropShadow dx="2" dy="3" stdDeviation="2" flood-opacity="0.3"/>
+        </filter>
+      </defs>
       
-      <!-- Inner tunic -->
-      <rect x="60" y="140" width="80" height="140" fill="#D2B48C" rx="5"/>
+      <!-- Body shadow -->
+      <ellipse cx="102" cy="295" rx="45" ry="8" fill="black" opacity="0.2"/>
       
-      <!-- Belt -->
-      <rect x="55" y="160" width="90" height="8" fill="#654321"/>
+      <!-- Robe with realistic folds -->
+      <path d="M50 120 Q45 125 45 140 L45 270 Q45 285 55 285 L145 285 Q155 285 155 270 L155 140 Q155 125 150 120 Z" 
+            fill="url(#robeGrad1)" filter="url(#shadow1)"/>
       
-      <!-- Head and face -->
-      <circle cx="100" cy="80" r="35" fill="#8B4513"/>
+      <!-- Robe highlight -->
+      <path d="M55 125 Q60 130 65 140 L65 270 Q65 275 70 275 L75 275" 
+            stroke="#F5F5DC" stroke-width="3" fill="none" opacity="0.4"/>
       
-      <!-- Eyes -->
-      <circle cx="90" cy="75" r="3" fill="white"/>
-      <circle cx="110" cy="75" r="3" fill="white"/>
-      <circle cx="90" cy="75" r="2" fill="black"/>
-      <circle cx="110" cy="75" r="2" fill="black"/>
+      <!-- Inner tunic with texture -->
+      <rect x="65" y="145" width="70" height="130" fill="#8B7355" rx="8"/>
+      <rect x="68" y="148" width="64" height="124" fill="#A0522D" rx="6" opacity="0.6"/>
       
-      <!-- Nose -->
-      <ellipse cx="100" cy="82" rx="2" ry="3" fill="#654321"/>
+      <!-- Belt with metallic shine -->
+      <rect x="60" y="165" width="80" height="12" fill="#654321" rx="2"/>
+      <rect x="62" y="167" width="76" height="4" fill="#8B7355" rx="1"/>
       
-      <!-- Mouth -->
-      <path d="M95 88 Q100 92 105 88" stroke="#654321" stroke-width="2" fill="none"/>
+      <!-- Head with 3D modeling -->
+      <circle cx="100" cy="80" r="38" fill="url(#faceGrad1)" filter="url(#shadow1)"/>
+      <ellipse cx="95" cy="75" rx="30" ry="28" fill="#A0522D" opacity="0.3"/>
       
-      <!-- Hair -->
-      <path d="M70 60 Q80 45 100 45 Q120 45 130 60 Q125 50 115 48 Q100 40 85 48 Q75 50 70 60" fill="#2F1B14"/>
+      <!-- Cheek highlights -->
+      <circle cx="85" cy="85" r="8" fill="#D2B48C" opacity="0.4"/>
+      <circle cx="115" cy="85" r="8" fill="#D2B48C" opacity="0.4"/>
       
-      <!-- Head covering -->
-      <path d="M75 65 Q100 55 125 65 L130 75 Q100 70 70 75 Z" fill="#8B0000" opacity="0.8"/>
+      <!-- Eyes with realistic depth -->
+      <ellipse cx="88" cy="72" rx="7" ry="5" fill="white"/>
+      <ellipse cx="112" cy="72" rx="7" ry="5" fill="white"/>
+      <circle cx="88" cy="72" r="4" fill="#2F1B14"/>
+      <circle cx="112" cy="72" r="4" fill="#2F1B14"/>
+      <circle cx="89" cy="70" r="1.5" fill="white" opacity="0.9"/>
+      <circle cx="113" cy="70" r="1.5" fill="white" opacity="0.9"/>
       
-      <!-- Arms -->
-      <ellipse cx="60" cy="140" rx="12" ry="25" fill="#8B4513"/>
-      <ellipse cx="140" cy="140" rx="12" ry="25" fill="#8B4513"/>
+      <!-- Detailed eyebrows -->
+      <path d="M80 65 Q85 62 92 64" stroke="#2F1B14" stroke-width="3" stroke-linecap="round"/>
+      <path d="M108 64 Q115 62 120 65" stroke="#2F1B14" stroke-width="3" stroke-linecap="round"/>
       
-      <!-- Hands -->
-      <circle cx="60" cy="165" r="8" fill="#8B4513"/>
-      <circle cx="140" cy="165" r="8" fill="#8B4513"/>
+      <!-- Nose with shading -->
+      <ellipse cx="100" cy="82" rx="3" ry="5" fill="#8B4513"/>
+      <ellipse cx="99" cy="80" rx="2" ry="4" fill="#A0522D"/>
+      <circle cx="98" cy="84" r="1" fill="#654321" opacity="0.5"/>
+      <circle cx="102" cy="84" r="1" fill="#654321" opacity="0.5"/>
       
-      <!-- Scroll in hand -->
-      <rect x="132" y="155" width="15" height="20" fill="#F5DEB3" rx="2"/>
-      <line x1="135" y1="158" x2="145" y2="158" stroke="#8B4513" stroke-width="1"/>
-      <line x1="135" y1="162" x2="145" y2="162" stroke="#8B4513" stroke-width="1"/>
-      <line x1="135" y1="166" x2="145" y2="166" stroke="#8B4513" stroke-width="1"/>
+      <!-- Expressive mouth -->
+      <path d="M92 92 Q100 98 108 92" stroke="#654321" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M95 95 Q100 97 105 95" stroke="#8B4513" stroke-width="1" fill="none"/>
       
-      <!-- Feet -->
-      <ellipse cx="80" cy="290" rx="12" ry="6" fill="#654321"/>
-      <ellipse cx="120" cy="290" rx="12" ry="6" fill="#654321"/>
-    </svg>
-  `,
-
-  // Hispanic child as temple musician
-  musician: `
-    <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-      <!-- Robe -->
-      <path d="M45 110 Q35 120 35 140 L35 275 Q35 285 45 285 L155 285 Q165 285 165 275 L165 140 Q165 120 155 110 Z" 
-            fill="#4B0082" stroke="#2F1B69" stroke-width="2"/>
+      <!-- Realistic curly hair -->
+      <path d="M65 55 Q75 40 90 42 Q100 35 110 42 Q125 40 135 55 Q130 45 120 43 Q100 30 80 43 Q70 45 65 55" 
+            fill="url(#hairGrad1)"/>
+      <circle cx="75" cy="50" r="4" fill="#5D4E37" opacity="0.8"/>
+      <circle cx="95" cy="45" r="3" fill="#5D4E37" opacity="0.8"/>
+      <circle cx="115" cy="48" r="4" fill="#5D4E37" opacity="0.8"/>
+      <circle cx="125" cy="52" r="3" fill="#5D4E37" opacity="0.8"/>
       
-      <!-- Decorative trim -->
-      <rect x="40" y="115" width="120" height="5" fill="#FFD700"/>
-      <rect x="40" y="165" width="120" height="3" fill="#FFD700"/>
+      <!-- Head covering with fabric texture -->
+      <path d="M75 65 Q100 50 125 65 L130 78 Q100 68 70 78 Z" fill="#8B0000"/>
+      <path d="M78 68 Q100 58 122 68" stroke="#CD5C5C" stroke-width="2" opacity="0.6"/>
       
-      <!-- Head and face -->
-      <circle cx="100" cy="75" r="32" fill="#D2691E"/>
+      <!-- Arms with muscle definition -->
+      <ellipse cx="55" cy="145" rx="15" ry="30" fill="url(#faceGrad1)"/>
+      <ellipse cx="145" cy="145" rx="15" ry="30" fill="url(#faceGrad1)"/>
+      <ellipse cx="52" cy="140" rx="12" ry="25" fill="#A0522D" opacity="0.4"/>
+      <ellipse cx="142" cy="140" rx="12" ry="25" fill="#A0522D" opacity="0.4"/>
       
-      <!-- Eyes -->
-      <circle cx="92" cy="70" r="3" fill="white"/>
-      <circle cx="108" cy="70" r="3" fill="white"/>
-      <circle cx="92" cy="70" r="2" fill="black"/>
-      <circle cx="108" cy="70" r="2" fill="black"/>
+      <!-- Detailed hands -->
+      <circle cx="55" cy="175" r="10" fill="url(#faceGrad1)"/>
+      <circle cx="145" cy="175" r="10" fill="url(#faceGrad1)"/>
+      <circle cx="52" cy="172" r="8" fill="#A0522D" opacity="0.5"/>
+      <circle cx="142" cy="172" r="8" fill="#A0522D" opacity="0.5"/>
       
-      <!-- Nose -->
-      <ellipse cx="100" cy="77" rx="2" ry="3" fill="#A0522D"/>
+      <!-- Fingers -->
+      <ellipse cx="50" cy="170" rx="2" ry="4" fill="url(#faceGrad1)"/>
+      <ellipse cx="55" cy="168" rx="2" ry="5" fill="url(#faceGrad1)"/>
+      <ellipse cx="60" cy="170" rx="2" ry="4" fill="url(#faceGrad1)"/>
       
-      <!-- Mouth -->
-      <path d="M96 83 Q100 87 104 83" stroke="#A0522D" stroke-width="2" fill="none"/>
-      
-      <!-- Hair -->
-      <path d="M72 55 Q85 45 100 45 Q115 45 128 55 Q125 48 110 46 Q100 40 90 46 Q75 48 72 55" fill="#2F1B14"/>
-      
-      <!-- Headband -->
-      <rect x="75" y="60" width="50" height="6" fill="#FFD700"/>
-      
-      <!-- Arms -->
-      <ellipse cx="55" cy="135" rx="12" ry="25" fill="#D2691E"/>
-      <ellipse cx="145" cy="135" rx="12" ry="25" fill="#D2691E"/>
-      
-      <!-- Hands -->
-      <circle cx="55" cy="160" r="8" fill="#D2691E"/>
-      <circle cx="145" cy="160" r="8" fill="#D2691E"/>
-      
-      <!-- Harp -->
-      <path d="M40 140 Q30 145 35 170 Q40 180 50 175 L50 145 Z" fill="#8B4513"/>
-      <line x1="38" y1="145" x2="48" y2="150" stroke="#FFD700" stroke-width="1"/>
-      <line x1="38" y1="150" x2="48" y2="155" stroke="#FFD700" stroke-width="1"/>
-      <line x1="38" y1="155" x2="48" y2="160" stroke="#FFD700" stroke-width="1"/>
-      <line x1="38" y1="160" x2="48" y2="165" stroke="#FFD700" stroke-width="1"/>
+      <!-- Scroll in hand with Hebrew text -->
+      <rect x="135" y="165" width="18" height="25" fill="#F5DEB3" rx="3" transform="rotate(15 144 177)"/>
+      <rect x="137" y="167" width="14" height="21" fill="#FFFACD" rx="2" transform="rotate(15 144 177)"/>
+      <line x1="139" y1="170" x2="147" y2="172" stroke="#8B4513" stroke-width="1" transform="rotate(15 144 177)"/>
+      <line x1="139" y1="174" x2="147" y2="176" stroke="#8B4513" stroke-width="1" transform="rotate(15 144 177)"/>
+      <line x1="139" y1="178" x2="147" y2="180" stroke="#8B4513" stroke-width="1" transform="rotate(15 144 177)"/>
       
       <!-- Feet -->
       <ellipse cx="80" cy="285" rx="12" ry="6" fill="#8B4513"/>
       <ellipse cx="120" cy="285" rx="12" ry="6" fill="#8B4513"/>
-    </svg>
-  `,
+    </svg>`,
 
-  // Native American child as temple keeper
-  keeper: `
+  // Hispanic child as storyteller - Pixar style with warm expressions
+  storyteller: `
     <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-      <!-- Outer robe -->
-      <path d="M48 115 Q38 125 38 145 L38 278 Q38 288 48 288 L152 288 Q162 288 162 278 L162 145 Q162 125 152 115 Z" 
-            fill="#800080" stroke="#4B0082" stroke-width="2"/>
+      <defs>
+        <radialGradient id="faceGrad2" cx="0.3" cy="0.2">
+          <stop offset="0%" stop-color="#F4C2A1"/>
+          <stop offset="50%" stop-color="#D2B48C"/>
+          <stop offset="100%" stop-color="#CD853F"/>
+        </radialGradient>
+        <radialGradient id="robeGrad2" cx="0.2" cy="0.1">
+          <stop offset="0%" stop-color="#FFE4B5"/>
+          <stop offset="50%" stop-color="#DEB887"/>
+          <stop offset="100%" stop-color="#D2691E"/>
+        </radialGradient>
+        <linearGradient id="hairGrad2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#8B4513"/>
+          <stop offset="100%" stop-color="#654321"/>
+        </radialGradient>
+        <filter id="shadow2">
+          <feDropShadow dx="2" dy="3" stdDeviation="2" flood-opacity="0.3"/>
+        </filter>
+      </defs>
       
-      <!-- Inner garment -->
-      <rect x="58" y="140" width="84" height="135" fill="#DDA0DD" rx="4"/>
+      <!-- Body shadow -->
+      <ellipse cx="102" cy="295" rx="45" ry="8" fill="black" opacity="0.2"/>
       
-      <!-- Priestly sash -->
-      <rect x="50" y="155" width="100" height="8" fill="#FFD700"/>
-      <rect x="50" y="155" width="100" height="2" fill="#FF6347"/>
-      <rect x="50" y="161" width="100" height="2" fill="#FF6347"/>
+      <!-- Colorful robe -->
+      <path d="M50 120 Q45 125 45 140 L45 270 Q45 285 55 285 L145 285 Q155 285 155 270 L155 140 Q155 125 150 120 Z" 
+            fill="url(#robeGrad2)" filter="url(#shadow2)"/>
       
-      <!-- Head and face -->
-      <circle cx="100" cy="78" r="33" fill="#CD853F"/>
+      <!-- Decorative trim -->
+      <rect x="50" y="125" width="100" height="8" fill="#B8860B" rx="2"/>
+      <rect x="52" y="127" width="96" height="4" fill="#FFD700" rx="1"/>
       
-      <!-- Eyes -->
-      <circle cx="91" cy="73" r="3" fill="white"/>
-      <circle cx="109" cy="73" r="3" fill="white"/>
-      <circle cx="91" cy="73" r="2" fill="black"/>
-      <circle cx="109" cy="73" r="2" fill="black"/>
+      <!-- Inner tunic -->
+      <rect x="65" y="145" width="70" height="130" fill="#DEB887" rx="8"/>
+      <rect x="68" y="148" width="64" height="124" fill="#F4A460" rx="6" opacity="0.7"/>
       
-      <!-- Nose -->
-      <ellipse cx="100" cy="80" rx="2" ry="3" fill="#A0522D"/>
+      <!-- Head with warm skin tone -->
+      <circle cx="100" cy="80" r="38" fill="url(#faceGrad2)" filter="url(#shadow2)"/>
+      <ellipse cx="95" cy="75" rx="30" ry="28" fill="#F4C2A1" opacity="0.4"/>
       
-      <!-- Mouth -->
-      <path d="M95 86 Q100 90 105 86" stroke="#A0522D" stroke-width="2" fill="none"/>
+      <!-- Rosy cheeks -->
+      <circle cx="80" cy="88" r="6" fill="#FFB6C1" opacity="0.6"/>
+      <circle cx="120" cy="88" r="6" fill="#FFB6C1" opacity="0.6"/>
       
-      <!-- Hair (long, braided) -->
-      <path d="M70 58 Q85 48 100 48 Q115 48 130 58 Q125 50 110 48 Q100 42 90 48 Q75 50 70 58" fill="#2F1B14"/>
-      <path d="M75 85 Q70 95 72 105" stroke="#2F1B14" stroke-width="4" fill="none"/>
-      <path d="M125 85 Q130 95 128 105" stroke="#2F1B14" stroke-width="4" fill="none"/>
+      <!-- Expressive eyes -->
+      <ellipse cx="88" cy="72" rx="7" ry="6" fill="white"/>
+      <ellipse cx="112" cy="72" rx="7" ry="6" fill="white"/>
+      <circle cx="88" cy="72" r="4" fill="#8B4513"/>
+      <circle cx="112" cy="72" r="4" fill="#8B4513"/>
+      <circle cx="89" cy="70" r="1.5" fill="white" opacity="0.9"/>
+      <circle cx="113" cy="70" r="1.5" fill="white" opacity="0.9"/>
       
-      <!-- Forehead decoration -->
-      <circle cx="100" cy="65" r="3" fill="#FFD700"/>
+      <!-- Animated eyebrows -->
+      <path d="M80 64 Q85 60 92 62" stroke="#654321" stroke-width="3" stroke-linecap="round"/>
+      <path d="M108 62 Q115 60 120 64" stroke="#654321" stroke-width="3" stroke-linecap="round"/>
       
-      <!-- Arms -->
-      <ellipse cx="58" cy="138" rx="12" ry="25" fill="#CD853F"/>
-      <ellipse cx="142" cy="138" rx="12" ry="25" fill="#CD853F"/>
+      <!-- Cute nose -->
+      <ellipse cx="100" cy="82" rx="3" ry="4" fill="#D2B48C"/>
+      <ellipse cx="99" cy="80" rx="2" ry="3" fill="#F4C2A1"/>
       
-      <!-- Hands -->
-      <circle cx="58" cy="163" r="8" fill="#CD853F"/>
-      <circle cx="142" cy="163" r="8" fill="#CD853F"/>
+      <!-- Happy smile -->
+      <path d="M90 92 Q100 102 110 92" stroke="#8B4513" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M93 96 Q100 100 107 96" fill="#FF6B6B" opacity="0.6"/>
       
-      <!-- Oil lamp -->
-      <ellipse cx="145" cy="158" rx="8" ry="5" fill="#B8860B"/>
-      <rect x="152" y="155" width="6" height="6" fill="#B8860B"/>
-      <path d="M150 153 Q152 150 154 153" stroke="#FF4500" stroke-width="2" fill="none"/>
+      <!-- Wavy hair -->
+      <path d="M65 55 Q70 35 85 40 Q95 30 105 40 Q115 30 125 40 Q130 35 135 55 Q125 45 115 48 Q105 38 95 48 Q85 38 75 48 Q65 45 65 55" 
+            fill="url(#hairGrad2)"/>
+      <path d="M70 50 Q80 45 90 50 Q100 45 110 50 Q120 45 130 50" stroke="#A0522D" stroke-width="2" fill="none"/>
+      
+      <!-- Hair accessories -->
+      <circle cx="85" cy="52" r="3" fill="#FFD700"/>
+      <circle cx="115" cy="52" r="3" fill="#FFD700"/>
+      
+      <!-- Arms with gesture -->
+      <ellipse cx="50" cy="150" rx="15" ry="32" fill="url(#faceGrad2)" transform="rotate(-15 50 150)"/>
+      <ellipse cx="150" cy="150" rx="15" ry="32" fill="url(#faceGrad2)" transform="rotate(20 150 150)"/>
+      
+      <!-- Hands in storytelling gesture -->
+      <circle cx="40" cy="180" r="10" fill="url(#faceGrad2)"/>
+      <circle cx="155" cy="170" r="10" fill="url(#faceGrad2)"/>
+      
+      <!-- Fingers pointing -->
+      <ellipse cx="35" cy="175" rx="2" ry="5" fill="url(#faceGrad2)" transform="rotate(-30 35 175)"/>
+      <ellipse cx="160" cy="165" rx="2" ry="5" fill="url(#faceGrad2)" transform="rotate(45 160 165)"/>
       
       <!-- Feet -->
-      <ellipse cx="78" cy="288" rx="12" ry="6" fill="#8B4513"/>
-      <ellipse cx="122" cy="288" rx="12" ry="6" fill="#8B4513"/>
-    </svg>
-  `,
+      <ellipse cx="80" cy="285" rx="12" ry="6" fill="#D2691E"/>
+      <ellipse cx="120" cy="285" rx="12" ry="6" fill="#D2691E"/>
+    </svg>`,
 
-  // Black child as shepherd
-  shepherd: `
+  // Native American child as explorer - Pixar style with detailed features
+  explorer: `
     <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-      <!-- Simple robe -->
-      <path d="M52 118 Q42 128 42 148 L42 280 Q42 290 52 290 L148 290 Q158 290 158 280 L158 148 Q158 128 148 118 Z" 
-            fill="#8B7355" stroke="#654321" stroke-width="2"/>
+      <defs>
+        <radialGradient id="faceGrad3" cx="0.3" cy="0.2">
+          <stop offset="0%" stop-color="#DEB887"/>
+          <stop offset="50%" stop-color="#D2B48C"/>
+          <stop offset="100%" stop-color="#BC9A6A"/>
+        </radialGradient>
+        <radialGradient id="robeGrad3" cx="0.2" cy="0.1">
+          <stop offset="0%" stop-color="#F5E6D3"/>
+          <stop offset="50%" stop-color="#E6D2C1"/>
+          <stop offset="100%" stop-color="#D2B48C"/>
+        </radialGradient>
+        <linearGradient id="hairGrad3" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#654321"/>
+          <stop offset="100%" stop-color="#2F1B14"/>
+        </linearGradient>
+        <filter id="shadow3">
+          <feDropShadow dx="2" dy="3" stdDeviation="2" flood-opacity="0.3"/>
+        </filter>
+      </defs>
       
-      <!-- Belt -->
-      <rect x="47" y="165" width="106" height="6" fill="#4B2F20"/>
+      <!-- Body shadow -->
+      <ellipse cx="102" cy="295" rx="45" ry="8" fill="black" opacity="0.2"/>
       
-      <!-- Head and face -->
-      <circle cx="100" cy="76" r="34" fill="#654321"/>
+      <!-- Earth-toned robe -->
+      <path d="M50 120 Q45 125 45 140 L45 270 Q45 285 55 285 L145 285 Q155 285 155 270 L155 140 Q155 125 150 120 Z" 
+            fill="url(#robeGrad3)" filter="url(#shadow3)"/>
       
-      <!-- Eyes -->
-      <circle cx="90" cy="71" r="3" fill="white"/>
-      <circle cx="110" cy="71" r="3" fill="white"/>
-      <circle cx="90" cy="71" r="2" fill="black"/>
-      <circle cx="110" cy="71" r="2" fill="black"/>
+      <!-- Fringe details -->
+      <path d="M50 280 L55 285 L60 280 L65 285 L70 280 L75 285 L80 280 L85 285 L90 280 L95 285 L100 280 L105 285 L110 280 L115 285 L120 280 L125 285 L130 280 L135 285 L140 280 L145 285 L150 280" 
+            stroke="#8B7355" stroke-width="2" fill="none"/>
       
-      <!-- Nose -->
-      <ellipse cx="100" cy="78" rx="2" ry="3" fill="#4B2F20"/>
+      <!-- Inner tunic -->
+      <rect x="65" y="145" width="70" height="130" fill="#CD853F" rx="8"/>
       
-      <!-- Mouth -->
-      <path d="M94 84 Q100 88 106 84" stroke="#4B2F20" stroke-width="2" fill="none"/>
+      <!-- Head with strong features -->
+      <circle cx="100" cy="80" r="38" fill="url(#faceGrad3)" filter="url(#shadow3)"/>
+      <ellipse cx="95" cy="75" rx="30" ry="28" fill="#DEB887" opacity="0.4"/>
       
-      <!-- Hair -->
-      <path d="M70 56 Q85 46 100 46 Q115 46 130 56 Q125 48 110 46 Q100 40 90 46 Q75 48 70 56" fill="#2F1B14"/>
+      <!-- Strong cheekbones -->
+      <ellipse cx="75" cy="85" rx="8" ry="4" fill="#BC9A6A" opacity="0.6"/>
+      <ellipse cx="125" cy="85" rx="8" ry="4" fill="#BC9A6A" opacity="0.6"/>
       
-      <!-- Simple head covering -->
-      <path d="M75 62 Q100 52 125 62 L128 72 Q100 67 72 72 Z" fill="#8B7355" opacity="0.7"/>
+      <!-- Wise eyes -->
+      <ellipse cx="88" cy="72" rx="7" ry="5" fill="white"/>
+      <ellipse cx="112" cy="72" rx="7" ry="5" fill="white"/>
+      <circle cx="88" cy="72" r="4" fill="#2F1B14"/>
+      <circle cx="112" cy="72" r="4" fill="#2F1B14"/>
+      <circle cx="89" cy="70" r="1.5" fill="white" opacity="0.9"/>
+      <circle cx="113" cy="70" r="1.5" fill="white" opacity="0.9"/>
       
-      <!-- Arms -->
-      <ellipse cx="62" cy="142" rx="12" ry="25" fill="#654321"/>
-      <ellipse cx="138" cy="142" rx="12" ry="25" fill="#654321"/>
+      <!-- Determined eyebrows -->
+      <path d="M80 65 Q85 62 92 64" stroke="#2F1B14" stroke-width="3" stroke-linecap="round"/>
+      <path d="M108 64 Q115 62 120 65" stroke="#2F1B14" stroke-width="3" stroke-linecap="round"/>
       
-      <!-- Hands -->
-      <circle cx="62" cy="167" r="8" fill="#654321"/>
-      <circle cx="138" cy="167" r="8" fill="#654321"/>
+      <!-- Noble nose -->
+      <ellipse cx="100" cy="82" rx="3" ry="5" fill="#BC9A6A"/>
+      <ellipse cx="99" cy="80" rx="2" ry="4" fill="#DEB887"/>
       
-      <!-- Shepherd's staff -->
-      <line x1="55" y1="120" x2="55" y2="250" stroke="#8B4513" stroke-width="3"/>
-      <path d="M55 120 Q50 110 60 115 Q65 118 60 125 Q55 122 55 120" fill="#8B4513"/>
+      <!-- Confident mouth -->
+      <path d="M92 92 Q100 96 108 92" stroke="#8B4513" stroke-width="3" fill="none" stroke-linecap="round"/>
+      
+      <!-- Long straight hair with braids -->
+      <path d="M65 55 Q75 40 100 40 Q125 40 135 55 L135 110 Q130 115 125 110 L125 60 Q100 45 75 60 L75 110 Q70 115 65 110 Z" 
+            fill="url(#hairGrad3)"/>
+      
+      <!-- Hair braids -->
+      <rect x="70" y="60" width="6" height="50" fill="#654321" rx="3"/>
+      <rect x="124" y="60" width="6" height="50" fill="#654321" rx="3"/>
+      <circle cx="73" cy="65" r="2" fill="#8B4513"/>
+      <circle cx="73" cy="75" r="2" fill="#8B4513"/>
+      <circle cx="73" cy="85" r="2" fill="#8B4513"/>
+      <circle cx="127" cy="65" r="2" fill="#8B4513"/>
+      <circle cx="127" cy="75" r="2" fill="#8B4513"/>
+      <circle cx="127" cy="85" r="2" fill="#8B4513"/>
+      
+      <!-- Feather accessory -->
+      <ellipse cx="85" cy="50" rx="3" ry="12" fill="#8B0000" transform="rotate(-30 85 50)"/>
+      <ellipse cx="87" cy="48" rx="2" ry="10" fill="#FF4500" transform="rotate(-30 87 48)"/>
+      
+      <!-- Strong arms -->
+      <ellipse cx="55" cy="145" rx="15" ry="30" fill="url(#faceGrad3)"/>
+      <ellipse cx="145" cy="145" rx="15" ry="30" fill="url(#faceGrad3)"/>
+      
+      <!-- Hands holding map -->
+      <circle cx="55" cy="175" r="10" fill="url(#faceGrad3)"/>
+      <circle cx="145" cy="175" r="10" fill="url(#faceGrad3)"/>
+      
+      <!-- Map/scroll -->
+      <rect x="75" y="170" width="50" height="30" fill="#F5DEB3" rx="3"/>
+      <rect x="78" y="173" width="44" height="24" fill="#FFFACD" rx="2"/>
+      <path d="M80 180 Q90 175 100 180 Q110 185 120 180" stroke="#8B4513" stroke-width="1.5" fill="none"/>
+      <circle cx="85" cy="182" r="1" fill="#8B4513"/>
+      <circle cx="115" cy="178" r="1" fill="#8B4513"/>
       
       <!-- Feet -->
-      <ellipse cx="80" cy="290" rx="12" ry="6" fill="#654321"/>
-      <ellipse cx="120" cy="290" rx="12" ry="6" fill="#654321"/>
-    </svg>
-  `,
+      <ellipse cx="80" cy="285" rx="12" ry="6" fill="#8B7355"/>
+      <ellipse cx="120" cy="285" rx="12" ry="6" fill="#8B7355"/>
+    </svg>`,
 
-  // Hispanic child as scribe
-  scribe: `
+  // Black child as guardian - Strong and protective Pixar style
+  guardian: `
     <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-      <!-- Scholar's robe -->
-      <path d="M46 112 Q36 122 36 142 L36 275 Q36 285 46 285 L154 285 Q164 285 164 275 L164 142 Q164 122 154 112 Z" 
-            fill="#2F4F4F" stroke="#1C3A3A" stroke-width="2"/>
+      <defs>
+        <radialGradient id="faceGrad4" cx="0.3" cy="0.2">
+          <stop offset="0%" stop-color="#C49A6B"/>
+          <stop offset="50%" stop-color="#A0522D"/>
+          <stop offset="100%" stop-color="#8B4513"/>
+        </radialGradient>
+        <radialGradient id="robeGrad4" cx="0.2" cy="0.1">
+          <stop offset="0%" stop-color="#E6E6FA"/>
+          <stop offset="50%" stop-color="#D8BFD8"/>
+          <stop offset="100%" stop-color="#9370DB"/>
+        </radialGradient>
+        <linearGradient id="hairGrad4" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#4A4A4A"/>
+          <stop offset="100%" stop-color="#2F1B14"/>
+        </linearGradient>
+        <filter id="shadow4">
+          <feDropShadow dx="2" dy="3" stdDeviation="2" flood-opacity="0.3"/>
+        </filter>
+      </defs>
       
-      <!-- Writing tablet strap -->
-      <rect x="70" y="120" width="60" height="4" fill="#8B4513"/>
+      <!-- Body shadow -->
+      <ellipse cx="102" cy="295" rx="45" ry="8" fill="black" opacity="0.2"/>
       
-      <!-- Head and face -->
-      <circle cx="100" cy="74" r="32" fill="#DEB887"/>
+      <!-- Protective robe -->
+      <path d="M45 120 Q40 125 40 140 L40 270 Q40 285 50 285 L150 285 Q160 285 160 270 L160 140 Q160 125 155 120 Z" 
+            fill="url(#robeGrad4)" filter="url(#shadow4)"/>
       
-      <!-- Eyes -->
-      <circle cx="93" cy="69" r="3" fill="white"/>
-      <circle cx="107" cy="69" r="3" fill="white"/>
-      <circle cx="93" cy="69" r="2" fill="black"/>
-      <circle cx="107" cy="69" r="2" fill="black"/>
+      <!-- Armor-like details -->
+      <rect x="60" y="130" width="80" height="15" fill="#4B0082" rx="3"/>
+      <circle cx="70" cy="137" r="3" fill="#FFD700"/>
+      <circle cx="100" cy="137" r="3" fill="#FFD700"/>
+      <circle cx="130" cy="137" r="3" fill="#FFD700"/>
       
-      <!-- Nose -->
-      <ellipse cx="100" cy="76" rx="2" ry="3" fill="#CD853F"/>
+      <!-- Inner tunic -->
+      <rect x="65" y="155" width="70" height="120" fill="#9370DB" rx="8"/>
       
-      <!-- Mouth -->
-      <path d="M95 82 Q100 86 105 82" stroke="#CD853F" stroke-width="2" fill="none"/>
+      <!-- Head with strong jaw -->
+      <circle cx="100" cy="80" r="40" fill="url(#faceGrad4)" filter="url(#shadow4)"/>
+      <ellipse cx="95" cy="75" rx="32" ry="30" fill="#C49A6B" opacity="0.4"/>
       
-      <!-- Hair -->
-      <path d="M72 54 Q87 44 100 44 Q113 44 128 54 Q123 46 108 44 Q100 38 92 44 Q77 46 72 54" fill="#2F1B14"/>
+      <!-- Determined eyes -->
+      <ellipse cx="88" cy="70" rx="7" ry="5" fill="white"/>
+      <ellipse cx="112" cy="70" rx="7" ry="5" fill="white"/>
+      <circle cx="88" cy="70" r="4" fill="#2F1B14"/>
+      <circle cx="112" cy="70" r="4" fill="#2F1B14"/>
+      <circle cx="89" cy="68" r="1.5" fill="white" opacity="0.9"/>
+      <circle cx="113" cy="68" r="1.5" fill="white" opacity="0.9"/>
       
-      <!-- Scholar's cap -->
-      <path d="M75 58 Q100 48 125 58 Q120 55 100 50 Q80 55 75 58" fill="#2F4F4F"/>
+      <!-- Strong eyebrows -->
+      <path d="M78 62 Q85 58 92 61" stroke="#2F1B14" stroke-width="4" stroke-linecap="round"/>
+      <path d="M108 61 Q115 58 122 62" stroke="#2F1B14" stroke-width="4" stroke-linecap="round"/>
       
-      <!-- Arms -->
-      <ellipse cx="56" cy="136" rx="12" ry="25" fill="#DEB887"/>
-      <ellipse cx="144" cy="136" rx="12" ry="25" fill="#DEB887"/>
+      <!-- Firm nose -->
+      <ellipse cx="100" cy="82" rx="4" ry="6" fill="#8B4513"/>
+      <ellipse cx="99" cy="80" rx="3" ry="5" fill="#A0522D"/>
       
-      <!-- Hands -->
-      <circle cx="56" cy="161" r="8" fill="#DEB887"/>
-      <circle cx="144" cy="161" r="8" fill="#DEB887"/>
+      <!-- Serious mouth -->
+      <path d="M90 94 Q100 96 110 94" stroke="#654321" stroke-width="3" fill="none" stroke-linecap="round"/>
       
-      <!-- Writing tablet -->
-      <rect x="48" y="150" width="16" height="20" fill="#F5DEB3" rx="2"/>
-      <line x1="50" y1="153" x2="62" y2="153" stroke="#2F4F4F" stroke-width="1"/>
-      <line x1="50" y1="157" x2="62" y2="157" stroke="#2F4F4F" stroke-width="1"/>
-      <line x1="50" y1="161" x2="62" y2="161" stroke="#2F4F4F" stroke-width="1"/>
-      <line x1="50" y1="165" x2="62" y2="165" stroke="#2F4F4F" stroke-width="1"/>
+      <!-- Short curly hair -->
+      <path d="M62 50 Q75 35 100 35 Q125 35 138 50 Q135 45 130 45 Q100 30 70 45 Q65 45 62 50" 
+            fill="url(#hairGrad4)"/>
+      <circle cx="75" cy="45" r="3" fill="#4A4A4A" opacity="0.8"/>
+      <circle cx="90" cy="40" r="2.5" fill="#4A4A4A" opacity="0.8"/>
+      <circle cx="110" cy="40" r="2.5" fill="#4A4A4A" opacity="0.8"/>
+      <circle cx="125" cy="45" r="3" fill="#4A4A4A" opacity="0.8"/>
       
-      <!-- Reed pen -->
-      <line x1="140" y1="155" x2="150" y2="150" stroke="#8B4513" stroke-width="2"/>
+      <!-- Muscular arms -->
+      <ellipse cx="50" cy="150" rx="18" ry="35" fill="url(#faceGrad4)"/>
+      <ellipse cx="150" cy="150" rx="18" ry="35" fill="url(#faceGrad4)"/>
+      <ellipse cx="47" cy="145" rx="15" ry="30" fill="#A0522D" opacity="0.4"/>
+      <ellipse cx="147" cy="145" rx="15" ry="30" fill="#A0522D" opacity="0.4"/>
+      
+      <!-- Strong hands -->
+      <circle cx="50" cy="185" r="12" fill="url(#faceGrad4)"/>
+      <circle cx="150" cy="185" r="12" fill="url(#faceGrad4)"/>
+      
+      <!-- Shield -->
+      <ellipse cx="35" cy="180" rx="15" ry="20" fill="#B8860B"/>
+      <ellipse cx="35" cy="180" rx="12" ry="17" fill="#FFD700"/>
+      <path d="M30 170 L40 170 L35 175 Z" fill="#8B0000"/>
       
       <!-- Feet -->
-      <ellipse cx="78" cy="285" rx="12" ry="6" fill="#654321"/>
-      <ellipse cx="122" cy="285" rx="12" ry="6" fill="#654321"/>
-    </svg>
-  `,
+      <ellipse cx="80" cy="285" rx="14" ry="7" fill="#4B0082"/>
+      <ellipse cx="120" cy="285" rx="14" ry="7" fill="#4B0082"/>
+    </svg>`,
 
-  // Native American child as teacher
-  teacher: `
+  // Hispanic child as artist - Creative and expressive Pixar style
+  artist: `
     <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-      <!-- Teacher's robe -->
-      <path d="M50 116 Q40 126 40 146 L40 277 Q40 287 50 287 L150 287 Q160 287 160 277 L160 146 Q160 126 150 116 Z" 
-            fill="#4169E1" stroke="#1E40AF" stroke-width="2"/>
+      <defs>
+        <radialGradient id="faceGrad5" cx="0.3" cy="0.2">
+          <stop offset="0%" stop-color="#F4C2A1"/>
+          <stop offset="50%" stop-color="#E6B89C"/>
+          <stop offset="100%" stop-color="#D2B48C"/>
+        </radialGradient>
+        <radialGradient id="robeGrad5" cx="0.2" cy="0.1">
+          <stop offset="0%" stop-color="#FFE4E1"/>
+          <stop offset="50%" stop-color="#FFB6C1"/>
+          <stop offset="100%" stop-color="#FF69B4"/>
+        </radialGradient>
+        <linearGradient id="hairGrad5" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#A0522D"/>
+          <stop offset="100%" stop-color="#8B4513"/>
+        </linearGradient>
+        <filter id="shadow5">
+          <feDropShadow dx="2" dy="3" stdDeviation="2" flood-opacity="0.3"/>
+        </filter>
+      </defs>
       
-      <!-- Teaching sash -->
-      <rect x="45" y="160" width="110" height="8" fill="#FFD700"/>
-      <rect x="45" y="160" width="110" height="2" fill="white"/>
-      <rect x="45" y="166" width="110" height="2" fill="white"/>
+      <!-- Body shadow -->
+      <ellipse cx="102" cy="295" rx="45" ry="8" fill="black" opacity="0.2"/>
       
-      <!-- Head and face -->
-      <circle cx="100" cy="77" r="33" fill="#D2691E"/>
+      <!-- Colorful artistic robe -->
+      <path d="M50 120 Q45 125 45 140 L45 270 Q45 285 55 285 L145 285 Q155 285 155 270 L155 140 Q155 125 150 120 Z" 
+            fill="url(#robeGrad5)" filter="url(#shadow5)"/>
       
-      <!-- Eyes -->
-      <circle cx="91" cy="72" r="3" fill="white"/>
-      <circle cx="109" cy="72" r="3" fill="white"/>
-      <circle cx="91" cy="72" r="2" fill="black"/>
-      <circle cx="109" cy="72" r="2" fill="black"/>
+      <!-- Paint splashes -->
+      <circle cx="70" cy="160" r="3" fill="#FF4500" opacity="0.7"/>
+      <circle cx="90" cy="180" r="2" fill="#32CD32" opacity="0.7"/>
+      <circle cx="120" cy="200" r="4" fill="#4169E1" opacity="0.7"/>
+      <circle cx="130" cy="170" r="2.5" fill="#FFD700" opacity="0.7"/>
       
-      <!-- Nose -->
-      <ellipse cx="100" cy="79" rx="2" ry="3" fill="#A0522D"/>
+      <!-- Inner tunic -->
+      <rect x="65" y="145" width="70" height="130" fill="#FFB6C1" rx="8"/>
       
-      <!-- Mouth -->
-      <path d="M95 85 Q100 89 105 85" stroke="#A0522D" stroke-width="2" fill="none"/>
+      <!-- Head with artistic expression -->
+      <circle cx="100" cy="80" r="38" fill="url(#faceGrad5)" filter="url(#shadow5)"/>
+      <ellipse cx="95" cy="75" rx="30" ry="28" fill="#F4C2A1" opacity="0.4"/>
       
-      <!-- Hair with feather decoration -->
-      <path d="M71 57 Q86 47 100 47 Q114 47 129 57 Q124 49 109 47 Q100 41 91 47 Q76 49 71 57" fill="#2F1B14"/>
-      <path d="M115 55 Q120 45 125 50 Q118 52 115 55" fill="#FF6347"/>
-      <path d="M115 55 Q120 45 125 50 Q118 52 115 55" stroke="#8B4513" stroke-width="1" fill="none"/>
+      <!-- Bright, creative eyes -->
+      <ellipse cx="88" cy="72" rx="8" ry="6" fill="white"/>
+      <ellipse cx="112" cy="72" rx="8" ry="6" fill="white"/>
+      <circle cx="88" cy="72" r="4.5" fill="#228B22"/>
+      <circle cx="112" cy="72" r="4.5" fill="#228B22"/>
+      <circle cx="89" cy="70" r="2" fill="white" opacity="0.9"/>
+      <circle cx="113" cy="70" r="2" fill="white" opacity="0.9"/>
       
-      <!-- Wisdom mark -->
-      <rect x="96" y="64" width="8" height="2" fill="#FFD700"/>
+      <!-- Expressive eyebrows -->
+      <path d="M78 64 Q85 60 94 63" stroke="#8B4513" stroke-width="3" stroke-linecap="round"/>
+      <path d="M106 63 Q115 60 122 64" stroke="#8B4513" stroke-width="3" stroke-linecap="round"/>
       
-      <!-- Arms -->
-      <ellipse cx="60" cy="140" rx="12" ry="25" fill="#D2691E"/>
-      <ellipse cx="140" cy="140" rx="12" ry="25" fill="#D2691E"/>
+      <!-- Button nose -->
+      <ellipse cx="100" cy="82" rx="3" ry="4" fill="#E6B89C"/>
+      <circle cx="100" cy="81" r="2" fill="#F4C2A1"/>
       
-      <!-- Hands -->
-      <circle cx="60" cy="165" r="8" fill="#D2691E"/>
-      <circle cx="140" cy="165" r="8" fill="#D2691E"/>
+      <!-- Joyful smile -->
+      <path d="M88 92 Q100 105 112 92" stroke="#8B4513" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M91 96 Q100 103 109 96" fill="#FF69B4" opacity="0.5"/>
       
-      <!-- Teaching scroll -->
-      <rect x="50" y="155" width="20" height="20" fill="#F5DEB3" rx="2"/>
-      <line x1="53" y1="158" x2="67" y2="158" stroke="#4169E1" stroke-width="1"/>
-      <line x1="53" y1="162" x2="67" y2="162" stroke="#4169E1" stroke-width="1"/>
-      <line x1="53" y1="166" x2="67" y2="166" stroke="#4169E1" stroke-width="1"/>
-      <line x1="53" y1="170" x2="67" y2="170" stroke="#4169E1" stroke-width="1"/>
+      <!-- Curly artistic hair with paint -->
+      <path d="M65 55 Q70 30 85 35 Q95 25 105 35 Q115 25 125 35 Q130 30 135 55 Q125 40 115 45 Q105 35 95 45 Q85 35 75 45 Q65 40 65 55" 
+            fill="url(#hairGrad5)"/>
+      <circle cx="78" cy="48" r="4" fill="#A0522D" opacity="0.8"/>
+      <circle cx="95" cy="42" r="3" fill="#A0522D" opacity="0.8"/>
+      <circle cx="105" cy="42" r="3" fill="#A0522D" opacity="0.8"/>
+      <circle cx="122" cy="48" r="4" fill="#A0522D" opacity="0.8"/>
       
-      <!-- Feet -->
-      <ellipse cx="79" cy="287" rx="12" ry="6" fill="#8B4513"/>
-      <ellipse cx="121" cy="287" rx="12" ry="6" fill="#8B4513"/>
-    </svg>
-  `
+      <!-- Paint in hair -->
+      <circle cx="85" cy="50" r="2" fill="#FF4500"/>
+      <circle cx="115" cy="50" r="2" fill="#4169E1"/>
+      
+      <!-- Artistic arms with paint -->
+      <ellipse cx="55" cy="150" rx="15" ry="32" fill="url(#faceGrad5)"/>
+      <ellipse cx="145" cy="150" rx="15" ry="32" fill="url(#faceGrad5)"/>
+      
+      <!-- Paint stained hands -->
+      <circle cx="55" cy="182" r="10" fill="url(#faceGrad5)"/>
+      <circle cx="145" cy="182" r="10" fill="url(#faceGrad5)"/>
+      <circle cx="52" cy="180" r="2" fill="#FF4500" opacity="0.8"/>
+      <circle cx="142" cy="180" r="2" fill="#32CD32" opacity="0.8"/>
+      
+      <!-- Paintbrush -->
+      <rect x="148" y="172" width="3" height="20" fill="#8B4513"/>
+      <ellipse cx="149.5" cy="170" rx="2" ry="3" fill="#FF69B4"/>
+      
+      <!-- Palette -->
+      <ellipse cx="40" cy="175" rx="12" ry="8" fill="#F5F5DC"/>
+      <circle cx="35" cy="172" r="2" fill="#FF0000"/>
+      <circle cx="40" cy="170" r="2" fill="#00FF00"/>
+      <circle cx="45" cy="172" r="2" fill="#0000FF"/>
+      <circle cx="40" cy="178" r="2" fill="#FFFF00"/>
+      
+      <!-- Feet with paint drops -->
+      <ellipse cx="80" cy="285" rx="12" ry="6" fill="#FF69B4"/>
+      <ellipse cx="120" cy="285" rx="12" ry="6" fill="#FF69B4"/>
+      <circle cx="85" cy="280" r="1" fill="#32CD32"/>
+      <circle cx="115" cy="280" r="1" fill="#FF4500"/>
+    </svg>`
 };
 
-// Character names and descriptions
 export const characterData = [
   {
-    id: 'scholar',
-    name: 'Miriam the Scholar',
-    description: 'A wise young scholar who loves learning about ancient Hebrew letters',
-    ethnicity: 'Black',
-    role: 'Student of the Torah'
+    id: "scholar",
+    name: "Miriam the Scholar",
+    description: "A wise young scholar who loves learning ancient Hebrew",
+    personality: "thoughtful and curious"
   },
   {
-    id: 'musician',
-    name: 'David the Musician',
-    description: 'A talented temple musician who plays beautiful melodies',
-    ethnicity: 'Hispanic',
-    role: 'Temple Harpist'
+    id: "storyteller", 
+    name: "David the Storyteller",
+    description: "An expressive child who brings ancient stories to life",
+    personality: "animated and engaging"
   },
   {
-    id: 'keeper',
-    name: 'Naomi the Keeper',
-    description: 'A dedicated temple keeper who tends the sacred flames',
-    ethnicity: 'Native American',
-    role: 'Temple Guardian'
+    id: "explorer",
+    name: "Sarah the Explorer", 
+    description: "A brave young explorer discovering ancient lands",
+    personality: "adventurous and determined"
   },
   {
-    id: 'shepherd',
-    name: 'Samuel the Shepherd',
-    description: 'A gentle shepherd who watches over the flocks',
-    ethnicity: 'Black',
-    role: 'Shepherd Boy'
+    id: "guardian",
+    name: "Joshua the Guardian",
+    description: "A strong protector watching over the ancient knowledge",
+    personality: "brave and protective"
   },
   {
-    id: 'scribe',
-    name: 'Esther the Scribe',
-    description: 'A skilled scribe who carefully writes Hebrew letters',
-    ethnicity: 'Hispanic',
-    role: 'Temple Scribe'
-  },
-  {
-    id: 'teacher',
-    name: 'Joshua the Teacher',
-    description: 'A patient teacher who helps children learn ancient wisdom',
-    ethnicity: 'Native American',
-    role: 'Hebrew Teacher'
+    id: "artist",
+    name: "Rebecca the Artist",
+    description: "A creative young artist who paints ancient stories",
+    personality: "imaginative and joyful"
   }
 ];

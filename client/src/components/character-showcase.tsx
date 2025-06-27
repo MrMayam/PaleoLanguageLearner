@@ -48,7 +48,7 @@ export function CharacterShowcase({ className = "" }: CharacterShowcaseProps) {
             />
             
             <h4 className="text-lg fredoka text-orange-800 mb-1">{character.name}</h4>
-            <p className="text-orange-600 text-xs mb-1">{character.role}</p>
+            <p className="text-orange-600 text-xs mb-1">{character.personality}</p>
             <p className="text-orange-600 text-xs italic">{character.description}</p>
           </div>
 
