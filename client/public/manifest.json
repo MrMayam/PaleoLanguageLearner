@@ -10,6 +10,7 @@
   "scope": "/",
   "lang": "en",
   "categories": ["education", "kids", "languages"],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/icons/icon-192x192.svg",
