@@ -4,6 +4,9 @@ import {
   userProgress,
   achievements,
   userAchievements,
+  characterPacks,
+  purchases,
+  schoolLicenses,
   type User,
   type InsertUser,
   type PaleoCharacter,
@@ -12,6 +15,9 @@ import {
   type UpdateUserProgress,
   type Achievement,
   type UserAchievement,
+  type CharacterPack,
+  type Purchase,
+  type SchoolLicense,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, and } from "drizzle-orm";
@@ -38,6 +44,17 @@ export interface IStorage {
   getUserAchievements(userId: number): Promise<UserAchievement[]>;
   unlockAchievement(userId: number, achievementId: number): Promise<UserAchievement>;
   checkAndUnlockAchievements(userId: number): Promise<UserAchievement[]>;
+
+  // Monetization methods
+  updateUserSubscription(userId: number, subscriptionData: Partial<User>): Promise<User>;
+  getCharacterPacks(): Promise<CharacterPack[]>;
+  getUserPurchases(userId: number): Promise<Purchase[]>;
+  createPurchase(purchase: Omit<Purchase, 'id' | 'purchasedAt'>): Promise<Purchase>;
+  updatePurchaseStatus(purchaseId: number, status: string): Promise<Purchase>;
+  hasAccessToCharacterPack(userId: number, packId: number): Promise<boolean>;
+  hasActivePremiumSubscription(userId: number): Promise<boolean>;
+  getSchoolLicenses(): Promise<SchoolLicense[]>;
+  createSchoolLicense(license: Omit<SchoolLicense, 'id' | 'startDate'>): Promise<SchoolLicense>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -249,6 +266,87 @@ export class DatabaseStorage implements IStorage {
     }
 
     return unlockedAchievements;
+  }
+
+  // Monetization methods
+  async updateUserSubscription(userId: number, subscriptionData: Partial<User>): Promise<User> {
+    const [user] = await db
+      .update(users)
+      .set({ ...subscriptionData, updatedAt: new Date().toISOString() })
+      .where(eq(users.id, userId))
+      .returning();
+    return user;
+  }
+
+  async getCharacterPacks(): Promise<CharacterPack[]> {
+    return await db.select().from(characterPacks).orderBy(characterPacks.order);
+  }
+
+  async getUserPurchases(userId: number): Promise<Purchase[]> {
+    return await db.select().from(purchases).where(eq(purchases.userId, userId));
+  }
+
+  async createPurchase(purchase: Omit<Purchase, 'id' | 'purchasedAt'>): Promise<Purchase> {
+    const [newPurchase] = await db
+      .insert(purchases)
+      .values({ ...purchase, purchasedAt: new Date().toISOString() })
+      .returning();
+    return newPurchase;
+  }
+
+  async updatePurchaseStatus(purchaseId: number, status: string): Promise<Purchase> {
+    const [purchase] = await db
+      .update(purchases)
+      .set({ status })
+      .where(eq(purchases.id, purchaseId))
+      .returning();
+    return purchase;
+  }
+
+  async hasAccessToCharacterPack(userId: number, packId: number): Promise<boolean> {
+    const user = await this.getUser(userId);
+    if (!user) return false;
+
+    // Check if user has premium subscription
+    if (user.subscriptionStatus === 'active' && user.subscriptionType === 'premium') {
+      return true;
+    }
+
+    // Check if user purchased this specific pack
+    const purchase = await db
+      .select()
+      .from(purchases)
+      .where(
+        and(
+          eq(purchases.userId, userId),
+          eq(purchases.type, 'character_pack'),
+          eq(purchases.itemId, packId),
+          eq(purchases.status, 'completed')
+        )
+      )
+      .limit(1);
+
+    return purchase.length > 0;
+  }
+
+  async hasActivePremiumSubscription(userId: number): Promise<boolean> {
+    const user = await this.getUser(userId);
+    if (!user) return false;
+
+    return user.subscriptionStatus === 'active' && 
+           (user.subscriptionType === 'premium' || user.subscriptionType === 'school');
+  }
+
+  async getSchoolLicenses(): Promise<SchoolLicense[]> {
+    return await db.select().from(schoolLicenses).where(eq(schoolLicenses.status, 'active'));
+  }
+
+  async createSchoolLicense(license: Omit<SchoolLicense, 'id' | 'startDate'>): Promise<SchoolLicense> {
+    const [newLicense] = await db
+      .insert(schoolLicenses)
+      .values({ ...license, startDate: new Date().toISOString() })
+      .returning();
+    return newLicense;
   }
 }
 

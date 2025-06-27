@@ -1,15 +1,25 @@
 import { Button } from "@/components/ui/button";
-import { Home, TrendingUp, Gamepad2, Settings } from "lucide-react";
+import { Home, TrendingUp, Gamepad2, Settings, Crown, ShoppingCart } from "lucide-react";
 import { Link, useLocation } from "wouter";
+import { useQuery } from "@tanstack/react-query";
 
 export function NavigationBar() {
   const [location] = useLocation();
+
+  const { data: premiumAccess } = useQuery({
+    queryKey: ["/api/user/1/premium-access"],
+  });
 
   const navItems = [
     { path: "/", icon: Home, label: "Home", color: "teal" },
     { path: "/progress", icon: TrendingUp, label: "Progress", color: "orange" },
     { path: "/sounds", icon: Gamepad2, label: "Games", color: "purple" },
     { path: "/alphabet", icon: Settings, label: "Learn", color: "green" },
+  ];
+
+  const premiumItems = [
+    { path: "/premium", icon: Crown, label: "Premium", color: "gold" },
+    { path: "/character-packs", icon: ShoppingCart, label: "Store", color: "blue" },
   ];
 
   return (

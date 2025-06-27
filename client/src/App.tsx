@@ -9,6 +9,9 @@ import SoundGames from "@/pages/sound-games";
 import WordBuilding from "@/pages/word-building";
 import TracingPractice from "@/pages/tracing-practice";
 import Progress from "@/pages/progress";
+import Premium from "@/pages/premium";
+import CharacterPacks from "@/pages/character-packs";
+import ParentDashboard from "@/pages/parent-dashboard";
 import NotFound from "@/pages/not-found";
 import { AudioProvider } from "@/lib/audio-context";
 
@@ -21,6 +24,9 @@ function Router() {
       <Route path="/words" component={WordBuilding} />
       <Route path="/tracing" component={TracingPractice} />
       <Route path="/progress" component={Progress} />
+      <Route path="/premium" component={Premium} />
+      <Route path="/character-packs" component={CharacterPacks} />
+      <Route path="/parent-dashboard" component={ParentDashboard} />
       <Route component={NotFound} />
     </Switch>
   );
