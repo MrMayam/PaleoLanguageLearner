@@ -18,48 +18,65 @@ export interface UseEnhancedAudioReturn {
   getAvailableVoices: () => SpeechSynthesisVoice[];
 }
 
-// Enhanced voice configuration for different character types
+// Morgan Freeman-style voice configuration for all character types
 const VoiceConfigurations = {
   narrator: {
-    rate: 0.8,
-    pitch: 0.9,
+    rate: 0.7,    // Slow, deliberate pace like Morgan Freeman
+    pitch: 0.6,   // Deep, resonant tone
     volume: 0.9,
     voiceFilter: (voice: SpeechSynthesisVoice) => 
-      voice.name.toLowerCase().includes('male') && 
-      !voice.name.toLowerCase().includes('female') &&
-      voice.lang.startsWith('en')
+      voice.lang.startsWith('en') && 
+      (voice.name.toLowerCase().includes('daniel') ||
+       voice.name.toLowerCase().includes('alex') ||
+       voice.name.toLowerCase().includes('fred') ||
+       voice.name.toLowerCase().includes('ralph') ||
+       voice.name.toLowerCase().includes('bruce'))
   },
   character: {
-    rate: 0.7,
-    pitch: 1.1,
-    volume: 0.8,
+    rate: 0.7,    // Same Morgan Freeman pace for character sounds
+    pitch: 0.6,   // Consistent deep voice for all pronunciation
+    volume: 0.9,
     voiceFilter: (voice: SpeechSynthesisVoice) => 
       voice.lang.startsWith('en') && 
-      (voice.name.toLowerCase().includes('natural') || 
-       voice.name.toLowerCase().includes('enhanced'))
+      (voice.name.toLowerCase().includes('daniel') ||
+       voice.name.toLowerCase().includes('alex') ||
+       voice.name.toLowerCase().includes('fred') ||
+       voice.name.toLowerCase().includes('ralph'))
   },
   child: {
-    rate: 0.6,
-    pitch: 1.3,
-    volume: 0.8,
+    rate: 0.7,    // Morgan Freeman teaching children - warm but deep
+    pitch: 0.6,   // Maintain the authoritative deep voice
+    volume: 0.9,
     voiceFilter: (voice: SpeechSynthesisVoice) => 
       voice.lang.startsWith('en') && 
-      (voice.name.toLowerCase().includes('female') || 
-       voice.name.toLowerCase().includes('child'))
+      (voice.name.toLowerCase().includes('daniel') ||
+       voice.name.toLowerCase().includes('alex') ||
+       voice.name.toLowerCase().includes('fred'))
   }
 };
 
-// Create sophisticated narration text for characters
+// Create Morgan Freeman-style narration for characters
 const createCharacterNarration = (characterName: string, sound: string): string => {
-  const narrativeIntros = [
-    `Listen carefully to the ancient sound of ${characterName}`,
-    `Here's how our ancestors pronounced ${characterName}`,
-    `The character ${characterName} makes this sacred sound`,
-    `In ancient times, ${characterName} was spoken like this`
+  const morganFreemanIntros = [
+    `In the ancient world, long before modern alphabets... the letter ${characterName} carried deep meaning`,
+    `Picture this... thousands of years ago, the Hebrew people spoke the sacred letter ${characterName}`,
+    `There is something profound about the way our ancestors pronounced ${characterName}`,
+    `Listen closely... and you will hear the wisdom of ages in the sound of ${characterName}`,
+    `In the beginning... there was the word... and ${characterName} was part of that ancient language`
   ];
   
-  const intro = narrativeIntros[Math.floor(Math.random() * narrativeIntros.length)];
-  return `${intro}. ${sound}. Remember, ${characterName} sounds like ${sound}.`;
+  const morganFreemanEndings = [
+    `That sound... that is the voice of history itself`,
+    `Remember this sound... it connects you to thousands of years of wisdom`,
+    `And that, my young friend, is how ${characterName} has always been spoken`,
+    `Such is the power of the ancient Hebrew letter ${characterName}`,
+    `This is the sound that echoed through the valleys of ancient Israel`
+  ];
+  
+  const intro = morganFreemanIntros[Math.floor(Math.random() * morganFreemanIntros.length)];
+  const ending = morganFreemanEndings[Math.floor(Math.random() * morganFreemanEndings.length)];
+  
+  return `${intro}... ${sound}... ${ending}.`;
 };
 
 // Enhanced speech synthesis with voice modulation

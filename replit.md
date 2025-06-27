@@ -115,6 +115,9 @@ Changelog:
 - June 27, 2025. Built parent dashboard with detailed progress analytics
 - June 27, 2025. Added premium features: offline content, parent reports, achievement tracking
 - June 27, 2025. Integrated school licensing system for educational institutions
+- June 27, 2025. Enhanced audio system with Morgan Freeman-style voice synthesis for all character pronunciation
+- June 27, 2025. Updated voice configurations with deep, authoritative tone (0.6 pitch, 0.7 rate)
+- June 27, 2025. Created authentic narrative introductions for Paleo Hebrew character sounds
 ```
 
 ## User Preferences
