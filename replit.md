@@ -109,8 +109,6 @@ Changelog:
 - June 27, 2025. Enhanced visual appeal with detailed gradients and expressive features
 - June 27, 2025. Replaced SVG illustrations with user-provided character images
 - June 27, 2025. Updated character showcase and learning companion components for image display
-- June 27, 2025. Added 4 sacred animal images representing Hebrew letter meanings (ox, camel, fish, serpent)
-- June 27, 2025. Created animal showcase component to display meaningful creatures from ancient Hebrew
 ```
 
 ## User Preferences
