@@ -10,10 +10,9 @@ import { apiRequest } from "@/lib/queryClient";
 import { Lock, Unlock, Star, ShoppingCart } from "lucide-react";
 import type { CharacterPack } from "@shared/schema";
 
-if (!import.meta.env.VITE_STRIPE_PUBLIC_KEY) {
-  throw new Error('Missing required Stripe key: VITE_STRIPE_PUBLIC_KEY');
-}
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
+const stripePromise = import.meta.env.VITE_STRIPE_PUBLIC_KEY 
+  ? loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY)
+  : null;
 
 const CheckoutForm = ({ packName, onSuccess }: { packName: string, onSuccess: () => void }) => {
   const stripe = useStripe();
