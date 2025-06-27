@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Kid-friendly color palette */
+  --primary-orange: hsl(13, 100%, 60%);
+  --primary-teal: hsl(177, 60%, 54%);
+  --sky-blue: hsl(198, 60%, 55%);
+  --mint-green: hsl(150, 40%, 65%);
+  --warm-yellow: hsl(45, 100%, 80%);
+  --soft-purple: hsl(300, 48%, 70%);
+  --success-green: hsl(165, 100%, 36%);
+  --warning-orange: hsl(13, 73%, 62%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-gradient-to-br from-sky-400 to-teal-400 min-h-screen;
+    font-family: 'Open Sans', sans-serif;
+  }
+}
+
+@layer components {
+  .fredoka {
+    font-family: 'Fredoka One', cursive;
+  }
+  
+  .btn-primary-orange {
+    background: hsl(var(--primary-orange));
+    color: white;
+  }
+  
+  .btn-primary-teal {
+    background: hsl(var(--primary-teal));
+    color: white;
+  }
+  
+  .btn-soft-purple {
+    background: hsl(var(--soft-purple));
+    color: white;
+  }
+  
+  .btn-mint-green {
+    background: hsl(var(--mint-green));
+    color: white;
+  }
+  
+  .bg-primary-orange {
+    background: hsl(var(--primary-orange));
+  }
+  
+  .bg-primary-teal {
+    background: hsl(var(--primary-teal));
+  }
+  
+  .bg-sky-blue {
+    background: hsl(var(--sky-blue));
+  }
+  
+  .bg-mint-green {
+    background: hsl(var(--mint-green));
+  }
+  
+  .bg-warm-yellow {
+    background: hsl(var(--warm-yellow));
+  }
+  
+  .bg-soft-purple {
+    background: hsl(var(--soft-purple));
+  }
+  
+  .text-primary-orange {
+    color: hsl(var(--primary-orange));
+  }
+  
+  .text-primary-teal {
+    color: hsl(var(--primary-teal));
+  }
+  
+  .animate-bounce-gentle {
+    animation: bounce 1s ease-in-out 2;
+  }
+  
+  .animate-wiggle {
+    animation: wiggle 1s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* Custom scrollbar for kid-friendly appearance */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary-teal));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary-orange));
+}
+
+/* Loading animations */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 2s linear infinite;
+}
