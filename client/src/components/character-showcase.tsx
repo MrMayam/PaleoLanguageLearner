@@ -40,11 +40,11 @@ export function CharacterShowcase({ className = "" }: CharacterShowcaseProps) {
           </Button>
 
           <div className="flex-1 text-center">
-            <div className="w-24 h-36 mx-auto mb-3 rounded-xl overflow-hidden">
+            <div className="w-24 h-36 mx-auto mb-3 bg-white rounded-xl shadow-md overflow-hidden">
               <img 
                 src={ancientCharacters[character.id as keyof typeof ancientCharacters] as string}
                 alt={character.name}
-                className="w-full h-full object-contain character-image-large"
+                className="w-full h-full object-cover"
               />
             </div>
             

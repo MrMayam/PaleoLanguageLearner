@@ -109,8 +109,6 @@ Changelog:
 - June 27, 2025. Enhanced visual appeal with detailed gradients and expressive features
 - June 27, 2025. Replaced SVG illustrations with user-provided character images
 - June 27, 2025. Updated character showcase and learning companion components for image display
-- June 27, 2025. Applied background removal effects with CSS blend modes and filters
-- June 27, 2025. Enhanced character image integration with transparent backgrounds
 ```
 
 ## User Preferences
