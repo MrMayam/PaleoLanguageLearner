@@ -3,6 +3,7 @@ import { NavigationBar } from "@/components/navigation-bar";
 import { AchievementBadge } from "@/components/achievement-badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
 import { ChevronLeft, Star, TrendingUp, Target, Award } from "lucide-react";
 import { Link } from "wouter";
@@ -33,14 +34,14 @@ export default function ProgressPage() {
   });
 
   const unlockedAchievementIds = new Set(userAchievements.map(ua => ua.achievementId));
-  const progressPercentage = user ? Math.round((user.charactersLearned / 22) * 100) : 0;
-  const pronunciationPercentage = user ? Math.round((user.pronunciationScore / 100) * 100) : 0;
-  const wordBuildingPercentage = user ? Math.round((user.wordBuildingScore / 100) * 100) : 0;
+  const progressPercentage = user ? Math.round(((user.charactersLearned || 0) / 22) * 100) : 0;
+  const pronunciationPercentage = user ? Math.round(((user.pronunciationScore || 0) / 100) * 100) : 0;
+  const wordBuildingPercentage = user ? Math.round(((user.wordBuildingScore || 0) / 100) * 100) : 0;
 
   const learnedCharacters = userProgress.filter(p => p.isLearned).length;
   const tracedCharacters = userProgress.filter(p => p.tracingCompleted).length;
   const perfectPronunciations = userProgress.filter(p => 
-    p.pronunciationAttempts > 0 && p.pronunciationCorrect === p.pronunciationAttempts
+    (p.pronunciationAttempts || 0) > 0 && p.pronunciationCorrect === (p.pronunciationAttempts || 0)
   ).length;
 
   return (
@@ -231,8 +232,9 @@ export default function ProgressPage() {
                   const progress = userProgress.find(p => p.characterId === character.id);
                   const isLearned = progress?.isLearned || false;
                   const isTraced = progress?.tracingCompleted || false;
-                  const hasPerfectPronunciation = progress && progress.pronunciationAttempts > 0 && 
-                    progress.pronunciationCorrect === progress.pronunciationAttempts;
+                  const pronunciationAttempts = progress?.pronunciationAttempts || 0;
+                  const hasPerfectPronunciation = progress && pronunciationAttempts > 0 && 
+                    progress.pronunciationCorrect === pronunciationAttempts;
 
                   return (
                     <div key={character.id} className="text-center p-3 bg-gray-50 rounded-2xl relative">
