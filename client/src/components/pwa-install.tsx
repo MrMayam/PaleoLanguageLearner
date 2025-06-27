@@ -39,7 +39,7 @@ export function PWAInstall() {
       // Don't show banner immediately, wait a bit for user engagement
       setTimeout(() => {
         setShowInstallBanner(true);
-      }, 30000); // Show after 30 seconds
+      }, 5000); // Show after 5 seconds
     };
 
     // Listen for app installed event

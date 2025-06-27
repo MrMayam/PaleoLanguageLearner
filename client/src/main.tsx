@@ -12,16 +12,30 @@ try {
   createRoot(rootElement).render(<App />);
   
   // Register service worker for PWA functionality
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
-        .then((registration) => {
-          console.log('SW registered: ', registration);
-        })
-        .catch((registrationError) => {
-          console.log('SW registration failed: ', registrationError);
+  if ('serviceWorker' in navigator && 'PushManager' in window) {
+    window.addEventListener('load', async () => {
+      try {
+        const registration = await navigator.serviceWorker.register('/sw.js', {
+          scope: '/'
         });
+        
+        console.log('ServiceWorker registered successfully:', registration);
+        
+        // Wait for the service worker to be ready
+        await navigator.serviceWorker.ready;
+        console.log('ServiceWorker is ready');
+        
+        // Enable background sync if supported
+        if ('sync' in window.ServiceWorkerRegistration.prototype) {
+          console.log('Background sync is supported');
+        }
+        
+      } catch (error) {
+        console.error('ServiceWorker registration failed:', error);
+      }
     });
+  } else {
+    console.log('ServiceWorker or Push notifications not supported');
   }
   
 } catch (error) {
