@@ -2,6 +2,7 @@ import { AppHeader } from "@/components/app-header";
 import { NavigationBar } from "@/components/navigation-bar";
 import { CharacterCard } from "@/components/character-card";
 import { CharacterShowcase } from "@/components/character-showcase";
+import { AnimalShowcase } from "@/components/animal-showcase";
 import { AchievementBadge } from "@/components/achievement-badge";
 import { CelebrationModal } from "@/components/celebration-modal";
 import { Card, CardContent } from "@/components/ui/card";
@@ -49,6 +50,9 @@ export default function Home() {
       <main className="p-6 space-y-8 pb-24">
         {/* Character Showcase */}
         <CharacterShowcase className="mb-6" />
+
+        {/* Animal Showcase */}
+        <AnimalShowcase className="mb-6" />
 
         {/* Daily Challenge Banner */}
         <Card className="bg-gradient-to-r from-yellow-300 to-orange-400 border-none shadow-xl">
