@@ -35,6 +35,19 @@
   --warning-orange: hsl(13, 73%, 62%);
 }
 
+/* Background removal for character images */
+.character-image {
+  filter: brightness(1.1) contrast(1.2) saturate(1.1) drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  background: transparent;
+  mix-blend-mode: multiply;
+}
+
+.character-image-large {
+  filter: brightness(1.1) contrast(1.2) saturate(1.1) drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+  background: transparent;
+  mix-blend-mode: multiply;
+}
+
 .dark {
   --background: hsl(240, 10%, 3.9%);
   --foreground: hsl(0, 0%, 98%);
