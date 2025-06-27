@@ -111,6 +111,8 @@ Changelog:
 - June 27, 2025. Updated character showcase and learning companion components for image display
 - June 27, 2025. Applied background removal effects with CSS blend modes and filters
 - June 27, 2025. Enhanced character image integration with transparent backgrounds
+- June 27, 2025. Added small character images for compact displays
+- June 27, 2025. Updated showcase and companion components to use appropriate image sizes
 ```
 
 ## User Preferences

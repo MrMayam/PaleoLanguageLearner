@@ -1,20 +1,31 @@
 // Character image imports for diverse children as ancient Israelites
-import scholarImg from "@assets/download_1751004963176.jpeg";
-import storytellerImg from "@assets/download (1)_1751004963170.jpeg";
-import explorerImg from "@assets/download (2)_1751004963175.jpeg";
-import guardianImg from "@assets/download (9)_1751004963176.jpeg";
+import scholarImg from "@assets/download_1751002902762.jpeg";
+import storytellerImg from "@assets/download (1)_1751002902758.jpeg";
+import explorerImg from "@assets/download (2)_1751002902759.jpeg";
+import guardianImg from "@assets/download (3)_1751002902760.jpeg";
 import artistImg from "@assets/download (4)_1751002902760.jpeg";
+
+// Small character images for compact displays
+import smallScholarImg from "@assets/download_1751004963176.jpeg";
+import smallStorytellerImg from "@assets/download (1)_1751004963170.jpeg";
+import smallExplorerImg from "@assets/download (2)_1751004963175.jpeg";
+import smallGuardianImg from "@assets/download (9)_1751004963176.jpeg";
 
 export const ancientCharacters = {
   scholar: scholarImg,
-
   storyteller: storytellerImg,
-
   explorer: explorerImg,
-
   guardian: guardianImg,
-
   artist: artistImg
+};
+
+// Small versions for compact displays
+export const smallCharacters = {
+  scholar: smallScholarImg,
+  storyteller: smallStorytellerImg,
+  explorer: smallExplorerImg,
+  guardian: smallGuardianImg,
+  artist: artistImg // Using regular size for artist as no small version provided
 };
 
 export const characterData = [
