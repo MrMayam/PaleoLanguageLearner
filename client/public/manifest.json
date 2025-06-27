@@ -1,7 +1,7 @@
 {
-  "name": "Paleo Hebrew Learning - Ancient Alphabet for Kids",
-  "short_name": "Paleo Hebrew",
-  "description": "Learn authentic Paleo Hebrew characters with Morgan Freeman-style narration. Interactive games, tracing practice, and educational content for children.",
+  "name": "Hebrew Basics",
+  "short_name": "Hebrew Basics",
+  "description": "Learn basic paleo hebrew",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

@@ -136,6 +136,8 @@ Changelog:
 - June 27, 2025. Created Digital Asset Links configuration for full-screen PWA operation on Android
 - June 27, 2025. Optimized PWA manifest for Play Store deployment with categories and maskable icons
 - June 27, 2025. Built complete deployment pipeline supporting both native Capacitor and Bubblewrap PWA methods
+- June 27, 2025. Configured final app deployment details: name "Hebrew Basics", description "Learn basic paleo hebrew"
+- June 27, 2025. Updated all deployment files with simplified branding for Google Play Store submission
 ```
 
 ## User Preferences
