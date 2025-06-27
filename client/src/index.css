@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ensure proper background for production */
+body {
+  margin: 0;
+  padding: 0;
+  background: white;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  background: white;
+}
+
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(20, 14.3%, 4.1%);
