@@ -32,6 +32,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.sendFile(path.resolve(process.cwd(), "bubblewrap-build/assetlinks.json"));
   });
 
+  // Share target endpoint for PWA
+  app.post('/share', (req, res) => {
+    const { title, text, url } = req.body;
+    
+    const params = new URLSearchParams();
+    if (title) params.set('shared_title', title);
+    if (text) params.set('shared_text', text);
+    if (url) params.set('shared_url', url);
+    
+    const redirectUrl = params.toString() ? `/?${params.toString()}` : '/';
+    res.redirect(302, redirectUrl);
+  });
+
   // User routes
   app.get("/api/user/:id", async (req, res) => {
     try {

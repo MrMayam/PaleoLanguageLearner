@@ -140,6 +140,8 @@ Changelog:
 - June 27, 2025. Updated all deployment files with simplified branding for Google Play Store submission
 - June 27, 2025. Fixed PWABuilder icon Content-Type error by creating proper PNG icon files
 - June 27, 2025. Resolved 500 error preventing Android package generation for Google Play Store
+- June 27, 2025. Fixed PWABuilder PNG corruption errors and manifest validation issues
+- June 27, 2025. Added share target route handler and updated all icon references to PNG format
 ```
 
 ## User Preferences
