@@ -1,5 +1,6 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
+import path from "path";
 import Stripe from "stripe";
 import { storage } from "./storage";
 import { insertUserSchema, insertUserProgressSchema, updateUserProgressSchema } from "@shared/schema";
@@ -10,6 +11,27 @@ const stripe = process.env.STRIPE_SECRET_KEY ? new Stripe(process.env.STRIPE_SEC
 }) : null;
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // PWA manifest route for Bubblewrap
+  app.get("/manifest.json", (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.sendFile(path.resolve(process.cwd(), "client/public/manifest.json"));
+  });
+
+  // Service worker route
+  app.get("/sw.js", (req, res) => {
+    res.setHeader('Content-Type', 'application/javascript');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.sendFile(path.resolve(process.cwd(), "client/public/sw.js"));
+  });
+
+  // Digital Asset Links for Bubblewrap TWA
+  app.get("/.well-known/assetlinks.json", (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.sendFile(path.resolve(process.cwd(), "bubblewrap-build/assetlinks.json"));
+  });
+
   // User routes
   app.get("/api/user/:id", async (req, res) => {
     try {
