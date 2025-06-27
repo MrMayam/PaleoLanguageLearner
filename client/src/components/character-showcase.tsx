@@ -40,12 +40,13 @@ export function CharacterShowcase({ className = "" }: CharacterShowcaseProps) {
           </Button>
 
           <div className="flex-1 text-center">
-            <div 
-              className="w-24 h-36 mx-auto mb-3 bg-white rounded-xl shadow-md flex items-center justify-center"
-              dangerouslySetInnerHTML={{ 
-                __html: ancientCharacters[character.id as keyof typeof ancientCharacters] 
-              }}
-            />
+            <div className="w-24 h-36 mx-auto mb-3 bg-white rounded-xl shadow-md overflow-hidden">
+              <img 
+                src={ancientCharacters[character.id as keyof typeof ancientCharacters] as string}
+                alt={character.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
             
             <h4 className="text-lg fredoka text-orange-800 mb-1">{character.name}</h4>
             <p className="text-orange-600 text-xs mb-1">{character.personality}</p>

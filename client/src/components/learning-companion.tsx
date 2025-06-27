@@ -23,12 +23,13 @@ export function LearningCompanion({
 
   return (
     <div className={`flex flex-col items-center ${className}`}>
-      <div 
-        className={`${sizeClasses[size]} bg-white rounded-lg shadow-md flex items-center justify-center`}
-        dangerouslySetInnerHTML={{ 
-          __html: ancientCharacters[character.id as keyof typeof ancientCharacters] 
-        }}
-      />
+      <div className={`${sizeClasses[size]} bg-white rounded-lg shadow-md overflow-hidden`}>
+        <img 
+          src={ancientCharacters[character.id as keyof typeof ancientCharacters] as string}
+          alt={character.name}
+          className="w-full h-full object-cover"
+        />
+      </div>
       {showName && (
         <p className="text-xs text-center mt-1 text-gray-600 fredoka">
           {character.name}

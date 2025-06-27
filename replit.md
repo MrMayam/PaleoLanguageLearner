@@ -107,6 +107,8 @@ Changelog:
 - June 27, 2025. Created Pixar-style hyper-realistic character designs with 3D shading
 - June 27, 2025. Added diverse cartoon characters throughout all learning modules
 - June 27, 2025. Enhanced visual appeal with detailed gradients and expressive features
+- June 27, 2025. Replaced SVG illustrations with user-provided character images
+- June 27, 2025. Updated character showcase and learning companion components for image display
 ```
 
 ## User Preferences
