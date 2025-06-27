@@ -1,4 +1,4 @@
-import { ancientCharacters, smallCharacters, characterData } from "@/assets/characters";
+import { ancientCharacters, characterData } from "@/assets/characters";
 
 interface LearningCompanionProps {
   characterId?: string;
@@ -25,10 +25,7 @@ export function LearningCompanion({
     <div className={`flex flex-col items-center ${className}`}>
       <div className={`${sizeClasses[size]} rounded-lg overflow-hidden`}>
         <img 
-          src={size === "sm" ? 
-            (smallCharacters[character.id as keyof typeof smallCharacters] as string) :
-            (ancientCharacters[character.id as keyof typeof ancientCharacters] as string)
-          }
+          src={ancientCharacters[character.id as keyof typeof ancientCharacters] as string}
           alt={character.name}
           className="w-full h-full object-contain character-image"
         />

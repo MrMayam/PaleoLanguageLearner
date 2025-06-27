@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { ancientCharacters, smallCharacters, characterData } from "@/assets/characters";
+import { ancientCharacters, characterData } from "@/assets/characters";
 
 interface CharacterShowcaseProps {
   className?: string;
@@ -42,9 +42,9 @@ export function CharacterShowcase({ className = "" }: CharacterShowcaseProps) {
           <div className="flex-1 text-center">
             <div className="w-24 h-36 mx-auto mb-3 rounded-xl overflow-hidden">
               <img 
-                src={smallCharacters[character.id as keyof typeof smallCharacters] as string}
+                src={ancientCharacters[character.id as keyof typeof ancientCharacters] as string}
                 alt={character.name}
-                className="w-full h-full object-contain character-image"
+                className="w-full h-full object-contain character-image-large"
               />
             </div>
             
