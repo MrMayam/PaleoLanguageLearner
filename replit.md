@@ -121,6 +121,12 @@ Changelog:
 - June 27, 2025. Fixed deployment issues by making Stripe integration optional
 - June 27, 2025. Successfully built production version with all assets (410KB client, 30.8KB server)
 - June 27, 2025. Resolved blue-green screen deployment error with proper HTML metadata and error handling
+- June 27, 2025. Converted app to Progressive Web App (PWA) with complete offline functionality
+- June 27, 2025. Created service worker for caching, background sync, and push notifications
+- June 27, 2025. Generated app icons from character artwork for all device sizes (16px to 512px)
+- June 27, 2025. Added PWA manifest with shortcuts for alphabet, games, and tracing sections
+- June 27, 2025. Implemented smart install prompts for both Android and iOS devices
+- June 27, 2025. Added PWA installation component with device-specific instructions
 ```
 
 ## User Preferences

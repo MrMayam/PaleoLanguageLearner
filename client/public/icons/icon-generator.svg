@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Background with warm educational colors -->
+  <defs>
+    <radialGradient id="bgGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#4dd0e1"/>
+      <stop offset="100%" style="stop-color:#0891b2"/>
+    </radialGradient>
+    <linearGradient id="charGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd54f"/>
+      <stop offset="50%" style="stop-color:#ffb74d"/>
+      <stop offset="100%" style="stop-color:#ff8a65"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="4" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#bgGradient)" filter="url(#shadow)"/>
+  
+  <!-- Inner circle for contrast -->
+  <circle cx="256" cy="256" r="200" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  
+  <!-- Paleo Hebrew character (Aleph) -->
+  <text x="256" y="320" font-family="serif" font-size="180" font-weight="bold" 
+        text-anchor="middle" fill="url(#charGradient)" filter="url(#shadow)">𐤀</text>
+  
+  <!-- Educational elements - small dots around -->
+  <circle cx="150" cy="150" r="8" fill="#ffd54f" opacity="0.7"/>
+  <circle cx="362" cy="150" r="8" fill="#ffd54f" opacity="0.7"/>
+  <circle cx="150" cy="362" r="8" fill="#ffd54f" opacity="0.7"/>
+  <circle cx="362" cy="362" r="8" fill="#ffd54f" opacity="0.7"/>
+  
+  <!-- App title arc -->
+  <path id="topArc" d="M 156 100 A 100 100 0 0 1 356 100" fill="none"/>
+  <text font-family="sans-serif" font-size="24" font-weight="bold" fill="white">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">PALEO</textPath>
+  </text>
+  
+  <path id="bottomArc" d="M 356 412 A 100 100 0 0 1 156 412" fill="none"/>
+  <text font-family="sans-serif" font-size="20" font-weight="bold" fill="white">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">HEBREW</textPath>
+  </text>
+</svg>

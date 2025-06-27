@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="384" height="384" viewBox="0 0 384 384">
+  <defs>
+    <radialGradient id="bg384" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#4dd0e1"/>
+      <stop offset="100%" style="stop-color:#0891b2"/>
+    </radialGradient>
+    <linearGradient id="char384" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd54f"/>
+      <stop offset="50%" style="stop-color:#ffb74d"/>
+      <stop offset="100%" style="stop-color:#ff8a65"/>
+    </linearGradient>
+    <filter id="shadow384" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="4" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <circle cx="192" cy="192" r="180" fill="url(#bg384)" filter="url(#shadow384)"/>
+  <circle cx="192" cy="192" r="150" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  <text x="192" y="240" font-family="serif" font-size="135" font-weight="bold" text-anchor="middle" fill="url(#char384)" filter="url(#shadow384)">𐤀</text>
+  <circle cx="112" cy="112" r="9" fill="#ffd54f" opacity="0.8"/>
+  <circle cx="272" cy="112" r="9" fill="#ffd54f" opacity="0.8"/>
+  <circle cx="112" cy="272" r="9" fill="#ffd54f" opacity="0.8"/>
+  <circle cx="272" cy="272" r="9" fill="#ffd54f" opacity="0.8"/>
+</svg>
