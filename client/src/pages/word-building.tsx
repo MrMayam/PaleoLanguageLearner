@@ -9,7 +9,7 @@ import { ChevronLeft, Puzzle, RotateCcw, Trash2 } from "lucide-react";
 import { Link } from "wouter";
 import type { PaleoCharacter, User } from "@shared/schema";
 import { apiRequest, queryClient } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
+import { useCharacterSound } from "@/lib/audio-context";
 
 interface WordBuildingState {
   selectedCharacters: PaleoCharacter[];
@@ -37,7 +37,7 @@ export default function WordBuilding() {
   
   const [showCelebration, setShowCelebration] = useState(false);
   const [celebrationMessage, setCelebrationMessage] = useState("");
-  const { toast } = useToast();
+  const { playSound } = useCharacterSound();
   
   // For demo purposes, using user ID 1
   const userId = 1;
@@ -74,11 +74,6 @@ export default function WordBuilding() {
 
   const addCharacterToWord = (character: PaleoCharacter) => {
     if (wordState.selectedCharacters.length >= 4) {
-      toast({
-        title: "Word limit reached",
-        description: "You can use up to 4 characters in a word",
-        variant: "destructive",
-      });
       return;
     }
 
@@ -89,10 +84,7 @@ export default function WordBuilding() {
       wordSound: prev.wordSound + character.sound + "-",
     }));
 
-    toast({
-      title: "Character added!",
-      description: `Added ${character.name} to your word`,
-    });
+    // Character added to word
   };
 
   const removeLastCharacter = () => {
@@ -118,11 +110,6 @@ export default function WordBuilding() {
 
   const saveWord = () => {
     if (wordState.selectedCharacters.length === 0) {
-      toast({
-        title: "No word to save",
-        description: "Please build a word first",
-        variant: "destructive",
-      });
       return;
     }
 
@@ -139,10 +126,7 @@ export default function WordBuilding() {
       setShowCelebration(true);
       updateWordBuildingMutation.mutate();
     } else {
-      toast({
-        title: "Word created!",
-        description: "Great job building your ancient word!",
-      });
+      // Word created successfully
     }
 
     setWordState(prev => ({

@@ -1,5 +1,4 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
-import { useToast } from './use-toast';
 
 export interface AudioState {
   isPlaying: boolean;
@@ -68,7 +67,6 @@ export const useAudio = (): UseAudioReturn => {
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const currentUrlRef = useRef<string>('');
-  const { toast } = useToast();
 
   // Cleanup audio on unmount
   useEffect(() => {
@@ -237,21 +235,14 @@ export const useAudio = (): UseAudioReturn => {
       
       setAudioState(prev => ({ ...prev, isLoading: false }));
       
-      toast({
-        title: "🔊 Sound played",
-        description: `You heard "${characterName}" with sound "${sound}"`,
-      });
+      // Character sound played successfully
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Failed to play character sound';
       setAudioState(prev => ({ ...prev, error: errorMessage, isLoading: false }));
       
-      toast({
-        title: "Audio unavailable",
-        description: "Character sound will be available when audio files are added",
-        variant: "destructive",
-      });
+      // Audio fallback handling
     }
-  }, [toast]);
+  }, []);
 
   const playSuccessSound = useCallback(async (): Promise<void> => {
     try {

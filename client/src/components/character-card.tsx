@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 import type { PaleoCharacter } from "@shared/schema";
-import { useToast } from "@/hooks/use-toast";
+import { useCharacterSound } from "@/lib/audio-context";
 
 interface CharacterCardProps {
   character: PaleoCharacter;
@@ -11,15 +11,11 @@ interface CharacterCardProps {
 }
 
 export function CharacterCard({ character, isLearned = false, onClick }: CharacterCardProps) {
-  const { toast } = useToast();
+  const { playSound, isLoading } = useCharacterSound();
 
-  const handlePlaySound = (e: React.MouseEvent) => {
+  const handlePlaySound = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    // Audio playback would go here
-    toast({
-      title: "🔊 Playing sound",
-      description: `Listen to "${character.sound}"`,
-    });
+    await playSound(character.name, character.sound);
   };
 
   const colors = [
@@ -48,10 +44,11 @@ export function CharacterCard({ character, isLearned = false, onClick }: Charact
         <p className="text-gray-600 text-xs mb-3">Sound: "{character.sound}"</p>
         <Button 
           onClick={handlePlaySound}
-          className={`bg-gradient-to-r ${gradientClass} hover:opacity-90 text-white px-4 py-2 rounded-xl font-semibold text-sm w-full transition-all duration-200`}
+          disabled={isLoading}
+          className={`bg-gradient-to-r ${gradientClass} hover:opacity-90 text-white px-4 py-2 rounded-xl font-semibold text-sm w-full transition-all duration-200 disabled:opacity-50`}
         >
           <Play className="mr-2" size={12} />
-          Listen
+          {isLoading ? "Playing..." : "Listen"}
         </Button>
       </CardContent>
       

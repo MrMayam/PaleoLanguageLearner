@@ -10,13 +10,13 @@ import { ChevronLeft, BookOpen } from "lucide-react";
 import { Link } from "wouter";
 import type { PaleoCharacter, User, UserProgress } from "@shared/schema";
 import { apiRequest, queryClient } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
+import { useCharacterSound } from "@/lib/audio-context";
 
 export default function AlphabetLearning() {
   const [selectedCharacter, setSelectedCharacter] = useState<PaleoCharacter | null>(null);
   const [showCelebration, setShowCelebration] = useState(false);
   const [celebrationMessage, setCelebrationMessage] = useState("");
-  const { toast } = useToast();
+  const { playSound } = useCharacterSound();
   
   // For demo purposes, using user ID 1
   const userId = 1;
@@ -51,10 +51,7 @@ export default function AlphabetLearning() {
         }
       });
       
-      toast({
-        title: "Great job!",
-        description: `You've learned ${selectedCharacter?.name}!`,
-      });
+      // Character learned successfully
     },
   });
 
@@ -103,11 +100,9 @@ export default function AlphabetLearning() {
                 <Button 
                   className="bg-purple-400 hover:bg-purple-500 text-white px-6 py-3 rounded-2xl font-bold"
                   onClick={() => {
-                    // Audio playback would go here
-                    toast({
-                      title: "Playing sound",
-                      description: `Listen to "${selectedCharacter.sound}"`,
-                    });
+                    if (selectedCharacter) {
+                      playSound(selectedCharacter.name, selectedCharacter.sound);
+                    }
                   }}
                 >
                   🔊 Listen

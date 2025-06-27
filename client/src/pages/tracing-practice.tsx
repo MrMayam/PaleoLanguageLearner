@@ -9,7 +9,7 @@ import { ChevronLeft, PencilLine, RotateCcw, Check } from "lucide-react";
 import { Link } from "wouter";
 import type { PaleoCharacter, User } from "@shared/schema";
 import { apiRequest, queryClient } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
+import { useCharacterSound } from "@/lib/audio-context";
 
 interface TracingState {
   currentCharacter: PaleoCharacter | null;
@@ -28,7 +28,7 @@ export default function TracingPractice() {
   
   const [showCelebration, setShowCelebration] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const { toast } = useToast();
+  const { playSound } = useCharacterSound();
   
   // For demo purposes, using user ID 1
   const userId = 1;
@@ -166,10 +166,7 @@ export default function TracingPractice() {
 
     updateTracingMutation.mutate(tracingState.currentCharacter.id);
 
-    toast({
-      title: "Great tracing! 🎨",
-      description: `You've traced ${tracingState.currentCharacter.name} beautifully!`,
-    });
+    // Character traced successfully
 
     if (tracingState.charactersTraced + 1 === 5) {
       setShowCelebration(true);

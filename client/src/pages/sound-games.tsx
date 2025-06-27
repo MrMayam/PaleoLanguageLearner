@@ -9,7 +9,7 @@ import { ChevronLeft, Volume2, RotateCcw, Trophy } from "lucide-react";
 import { Link } from "wouter";
 import type { PaleoCharacter, User } from "@shared/schema";
 import { apiRequest, queryClient } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
+import { useCharacterSound } from "@/lib/audio-context";
 
 interface GameState {
   currentCharacter: PaleoCharacter | null;
@@ -35,7 +35,7 @@ export default function SoundGames() {
   });
   
   const [showCelebration, setShowCelebration] = useState(false);
-  const { toast } = useToast();
+  const { playSound } = useCharacterSound();
   
   // For demo purposes, using user ID 1
   const userId = 1;
@@ -127,20 +127,12 @@ export default function SoundGames() {
     });
 
     if (isCorrect) {
-      toast({
-        title: "Correct! 🎉",
-        description: `Great job! That's the sound for ${gameState.currentCharacter.name}`,
-      });
-      
+      // Correct answer feedback
       if (gameState.streak + 1 === 5) {
         setShowCelebration(true);
       }
     } else {
-      toast({
-        title: "Not quite!",
-        description: `The correct sound for ${gameState.currentCharacter.name} is "${gameState.correctAnswer}"`,
-        variant: "destructive",
-      });
+      // Incorrect answer feedback  
     }
 
     // Next question after delay
@@ -149,14 +141,10 @@ export default function SoundGames() {
     }, 2000);
   };
 
-  const playCharacterSound = () => {
+  const playCharacterSound = async () => {
     if (!gameState.currentCharacter) return;
     
-    // Audio playback would go here
-    toast({
-      title: "🔊 Playing sound",
-      description: `Listen carefully to ${gameState.currentCharacter.name}`,
-    });
+    await playSound(gameState.currentCharacter.name, gameState.currentCharacter.sound);
   };
 
   return (

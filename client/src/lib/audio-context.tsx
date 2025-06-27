@@ -1,7 +1,7 @@
 import { createContext, useContext, ReactNode } from 'react';
-import { useAudio, UseAudioReturn } from '@/hooks/use-audio';
+import { useEnhancedAudio, UseEnhancedAudioReturn } from '@/lib/enhanced-audio';
 
-interface AudioContextType extends UseAudioReturn {
+interface AudioContextType extends UseEnhancedAudioReturn {
   // Additional methods for app-specific audio management
   playLearningSound: (type: 'correct' | 'incorrect' | 'achievement') => Promise<void>;
   preloadCharacterSounds: (characterNames: string[]) => Promise<void>;
@@ -14,7 +14,7 @@ interface AudioProviderProps {
 }
 
 export function AudioProvider({ children }: AudioProviderProps) {
-  const audioHook = useAudio();
+  const audioHook = useEnhancedAudio();
 
   const playLearningSound = async (type: 'correct' | 'incorrect' | 'achievement'): Promise<void> => {
     switch (type) {
@@ -25,37 +25,7 @@ export function AudioProvider({ children }: AudioProviderProps) {
         await audioHook.playErrorSound();
         break;
       case 'achievement':
-        // Play a special achievement sound sequence
-        try {
-          const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-          
-          // Create a triumphant achievement sound
-          const playNote = (frequency: number, startTime: number, duration: number) => {
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-
-            oscillator.frequency.setValueAtTime(frequency, startTime);
-            oscillator.type = 'triangle';
-
-            gainNode.gain.setValueAtTime(0.4, startTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, startTime + duration);
-
-            oscillator.start(startTime);
-            oscillator.stop(startTime + duration);
-          };
-
-          // Play achievement fanfare: C-E-G-C
-          const currentTime = audioContext.currentTime;
-          playNote(523.25, currentTime, 0.3); // C5
-          playNote(659.25, currentTime + 0.15, 0.3); // E5
-          playNote(783.99, currentTime + 0.3, 0.3); // G5
-          playNote(1046.5, currentTime + 0.45, 0.5); // C6
-        } catch (error) {
-          console.warn('Could not play achievement sound:', error);
-        }
+        await audioHook.playSuccessSound(); // Use enhanced success sound for achievements
         break;
     }
   };
@@ -113,9 +83,9 @@ export function useAudioContext(): AudioContextType {
 export function useCharacterSound() {
   const { playCharacterSound, audioState } = useAudioContext();
 
-  const playSound = async (characterName: string): Promise<void> => {
+  const playSound = async (characterName: string, sound: string): Promise<void> => {
     try {
-      await playCharacterSound(characterName);
+      await playCharacterSound(characterName, sound);
     } catch (error) {
       console.warn(`Failed to play sound for ${characterName}:`, error);
     }
