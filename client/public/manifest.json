@@ -37,6 +37,13 @@
       "purpose": "maskable"
     }
   ],
+  "id": "hebrew-basics-app",
+  "dir": "ltr",
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "related_applications": [],
   "shortcuts": [
     {
       "name": "Learn Alphabet",
@@ -60,6 +67,16 @@
       "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
     }
   ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
   "screenshots": [
     {
       "src": "/screenshots/home.png",

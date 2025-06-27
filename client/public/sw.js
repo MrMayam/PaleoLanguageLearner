@@ -35,6 +35,12 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
+  // Handle share target functionality
+  if (url.pathname === '/share' && request.method === 'POST') {
+    event.respondWith(handleShare(request));
+    return;
+  }
+
   // Handle API requests
   if (url.pathname.startsWith('/api/')) {
     event.respondWith(
@@ -116,5 +122,22 @@ async function syncProgress() {
     }
   } catch (error) {
     console.error('Background sync failed:', error);
+  }
+}
+
+// Handle share target functionality
+async function handleShare(request) {
+  try {
+    const formData = await request.formData();
+    const title = formData.get('title') || '';
+    const text = formData.get('text') || '';
+    const url = formData.get('url') || '';
+    
+    // Redirect to app with shared content
+    const redirectUrl = `/?shared=true&title=${encodeURIComponent(title)}&text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+    return Response.redirect(redirectUrl, 302);
+  } catch (error) {
+    console.error('Share handling failed:', error);
+    return Response.redirect('/', 302);
   }
 }

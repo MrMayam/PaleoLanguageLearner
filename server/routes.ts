@@ -390,6 +390,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Share target endpoint for PWA sharing
+  app.post('/share', (req, res) => {
+    const { title, text, url } = req.body;
+    const redirectUrl = `/?shared=true&title=${encodeURIComponent(title || '')}&text=${encodeURIComponent(text || '')}&url=${encodeURIComponent(url || '')}`;
+    res.redirect(302, redirectUrl);
+  });
+
+  // Serve manifest.json with proper headers
+  app.get('/manifest.json', (req, res) => {
+    res.setHeader('Content-Type', 'application/manifest+json');
+    res.sendFile('manifest.json', { root: 'client/public' });
+  });
+
+  // Digital Asset Links for Android TWA
+  app.get('/.well-known/assetlinks.json', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.sendFile('assetlinks.json', { root: 'bubblewrap-build' });
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
