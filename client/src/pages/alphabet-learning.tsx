@@ -1,6 +1,7 @@
 import { AppHeader } from "@/components/app-header";
 import { NavigationBar } from "@/components/navigation-bar";
 import { CharacterCard } from "@/components/character-card";
+import { LearningCompanion } from "@/components/learning-companion";
 import { CelebrationModal } from "@/components/celebration-modal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -78,9 +79,12 @@ export default function AlphabetLearning() {
               <ChevronLeft size={24} />
             </Button>
           </Link>
-          <div className="text-center">
-            <h1 className="text-2xl fredoka text-white drop-shadow-lg">Paleo Hebrew Alphabet</h1>
-            <p className="text-white/90 text-sm">Learn all 22 ancient characters</p>
+          <div className="text-center flex items-center gap-3">
+            <LearningCompanion characterId="scholar" size="sm" />
+            <div>
+              <h1 className="text-2xl fredoka text-white drop-shadow-lg">Paleo Hebrew Alphabet</h1>
+              <p className="text-white/90 text-sm">Learn all 22 ancient characters</p>
+            </div>
           </div>
           <div className="w-10" /> {/* Spacer */}
         </div>

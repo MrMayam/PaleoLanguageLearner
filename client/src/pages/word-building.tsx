@@ -1,5 +1,6 @@
 import { AppHeader } from "@/components/app-header";
 import { NavigationBar } from "@/components/navigation-bar";
+import { LearningCompanion } from "@/components/learning-companion";
 import { CelebrationModal } from "@/components/celebration-modal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -158,9 +159,12 @@ export default function WordBuilding() {
               <ChevronLeft size={24} />
             </Button>
           </Link>
-          <div className="text-center">
-            <h1 className="text-2xl fredoka text-white drop-shadow-lg">Word Building</h1>
-            <p className="text-white/90 text-sm">Create ancient Hebrew words</p>
+          <div className="text-center flex items-center gap-3">
+            <LearningCompanion characterId="explorer" size="sm" />
+            <div>
+              <h1 className="text-2xl fredoka text-white drop-shadow-lg">Word Building</h1>
+              <p className="text-white/90 text-sm">Create ancient Hebrew words</p>
+            </div>
           </div>
           <Button 
             variant="ghost" 

@@ -1,6 +1,7 @@
 import { AppHeader } from "@/components/app-header";
 import { NavigationBar } from "@/components/navigation-bar";
 import { CharacterCard } from "@/components/character-card";
+import { CharacterShowcase } from "@/components/character-showcase";
 import { AchievementBadge } from "@/components/achievement-badge";
 import { CelebrationModal } from "@/components/celebration-modal";
 import { Card, CardContent } from "@/components/ui/card";
@@ -35,9 +36,9 @@ export default function Home() {
   });
 
   const featuredCharacters = characters.slice(0, 3);
-  const progressPercentage = user ? Math.round((user.charactersLearned / 22) * 100) : 0;
-  const pronunciationPercentage = user ? Math.round((user.pronunciationScore / 100) * 100) : 0;
-  const wordBuildingPercentage = user ? Math.round((user.wordBuildingScore / 100) * 100) : 0;
+  const progressPercentage = user ? Math.round(((user.charactersLearned || 0) / 22) * 100) : 0;
+  const pronunciationPercentage = user ? Math.round(((user.pronunciationScore || 0) / 100) * 100) : 0;
+  const wordBuildingPercentage = user ? Math.round(((user.wordBuildingScore || 0) / 100) * 100) : 0;
 
   const unlockedAchievementIds = new Set(userAchievements.map(ua => ua.achievementId));
 
@@ -46,13 +47,16 @@ export default function Home() {
       <AppHeader user={user} />
       
       <main className="p-6 space-y-8 pb-24">
+        {/* Character Showcase */}
+        <CharacterShowcase className="mb-6" />
+
         {/* Daily Challenge Banner */}
         <Card className="bg-gradient-to-r from-yellow-300 to-orange-400 border-none shadow-xl">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-4">
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-orange-400 text-2xl shadow-inner">
-                  👧🏿
+                  📜
                 </div>
                 <div>
                   <h2 className="text-xl fredoka text-white mb-1">Daily Challenge</h2>
