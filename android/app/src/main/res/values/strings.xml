@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Paleo Hebrew Learning</string>
+    <string name="title_activity_main">Paleo Hebrew Learning</string>
+    <string name="package_name">com.paleohebrewlearning.app</string>
+    <string name="custom_url_scheme">com.paleohebrewlearning.app</string>
+</resources>

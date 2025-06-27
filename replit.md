@@ -127,6 +127,10 @@ Changelog:
 - June 27, 2025. Added PWA manifest with shortcuts for alphabet, games, and tracing sections
 - June 27, 2025. Implemented smart install prompts for both Android and iOS devices
 - June 27, 2025. Added PWA installation component with device-specific instructions
+- June 27, 2025. Created native mobile app configuration with Capacitor for iOS App Store and Google Play Store
+- June 27, 2025. Added Android and iOS native projects with proper app metadata and configuration
+- June 27, 2025. Created comprehensive app store deployment guide with submission requirements
+- June 27, 2025. Set up build scripts and deployment workflows for both app stores
 ```
 
 ## User Preferences
