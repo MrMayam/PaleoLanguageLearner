@@ -138,6 +138,8 @@ Changelog:
 - June 27, 2025. Built complete deployment pipeline supporting both native Capacitor and Bubblewrap PWA methods
 - June 27, 2025. Configured final app deployment details: name "Hebrew Basics", description "Learn basic paleo hebrew"
 - June 27, 2025. Updated all deployment files with simplified branding for Google Play Store submission
+- June 27, 2025. Fixed PWABuilder icon Content-Type error by creating proper PNG icon files
+- June 27, 2025. Resolved 500 error preventing Android package generation for Google Play Store
 ```
 
 ## User Preferences
