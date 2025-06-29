@@ -25,11 +25,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.sendFile(path.resolve(process.cwd(), "client/public/sw.js"));
   });
 
-  // Digital Asset Links for Bubblewrap TWA
+  // Digital Asset Links for TWA validation
   app.get("/.well-known/assetlinks.json", (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.sendFile(path.resolve(process.cwd(), "bubblewrap-build/assetlinks.json"));
+    res.setHeader('Cache-Control', 'public, max-age=3600');
+    res.sendFile(path.resolve(process.cwd(), "client/public/.well-known/assetlinks.json"));
   });
 
   // Share target endpoint for PWA

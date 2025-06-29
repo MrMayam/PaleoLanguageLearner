@@ -142,6 +142,9 @@ Changelog:
 - June 27, 2025. Resolved 500 error preventing Android package generation for Google Play Store
 - June 27, 2025. Fixed PWABuilder PNG corruption errors and manifest validation issues
 - June 27, 2025. Added share target route handler and updated all icon references to PNG format
+- June 27, 2025. Installed new diverse children Hebrew logo across all icon sizes (72x72 to 1024x1024)
+- June 27, 2025. Added HTTPS enforcement middleware and security headers for production deployment
+- June 27, 2025. Configured Digital Asset Links for TWA validation and Google Play Store submission
 ```
 
 ## User Preferences

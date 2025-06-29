@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "app.replit.paleo_language_learner_thahawam.twa",
+        "sha256_cert_fingerprints": ["91:CA:46:78:81:7C:D3:35:DF:8C:5F:0C:43:4C:00:66:63:98:3F:95:01:23:20:3A:71:DC:68:4F:7B:03:58:B7"]
+      }
+    }]
